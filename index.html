@@ -1,0 +1,1366 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Dönüşüm Portföyü</title>
+<meta name="description" content="Dönüşüm Takip Sistemi — three.js ile oluşturulmuş etkileşimli kurumsal dönüşüm portföyü">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  html,body{margin:0;height:100%;background:#050b18;overflow:hidden;overscroll-behavior:none}
+  body{touch-action:none;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}
+  canvas{display:block;outline:none}
+</style>
+<script type="importmap">
+{"imports":{
+  "three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+  "three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+}}
+</script>
+</head>
+<body>
+<script id="data" type="application/json">{"topics":[{"g":"calisma","ad":"KPI Performans Yönetimi","durum":"Çalışılıyor","giris":"4 Tem 2026","hedef":"31 Ara 2026","sorumlu":"İnsan Kaynakları, Kurumsal Mimari ve Akademi, Performans Yönetimi","amac":"Bankamız Genel Müdür Yardımcılarının ve Grup Başkanlarının kendilerine bağlı birimlerle birlikte performanslarının belirlenmesi için KPI'ların oluşturulması ve takip edilerek ölçülmesi","kapsam":"Yaklaşık 290 Genel Müdürlük biriminin KPI oluşturma kapasitelerine göre kategorize edilmesi, KPI ve SLA seviyelerinin belirlenmesi ve müdürlük seviyesindeki sonuçların Başkanlık ve GMY performansına konsolide edilmesi kapsam dahilindedir. Ayrıca Bölge Krediler birimlerine yönelik KPI setinin geliştirilmesi, Maliyet/Gelir rasyosu ile şube/çalışan başına gider ve verimlilik göstergelerinin sisteme eklenmesi ve şubeye dokunan tarafların önceliklendirilmesi planlanmaktadır.","kazanim":"Yönetici ve birim performansının ölçülebilir hale getirilmesi, hedef bazlı takip disiplininin güçlendirilmesi ve karar alma süreçlerinde veri odaklı performans yönetimi yaklaşımının desteklenmesi","kararlar":[{"no":"Karar 20/4","tarih":"1 Eyl 2026","metin":"KPI Performans Yönetimi kapsamında belirlenecek SLA ve KPI'larda şubeye dokunan tarafların önceliklendirilmesi."},{"no":"Karar 19/1","tarih":"11 Ağu 2026","metin":"Bölge Krediler birimlerine ilişkin KPI setinin geliştirilmesi ve mevcut göstergelerin gözden geçirilmesi."},{"no":"Karar 19/2","tarih":"11 Ağu 2026","metin":"Maliyet/Gelir rasyosunun performans değerlendirme kriterleri arasına dahil edilmesi."},{"no":"Karar 19/3","tarih":"11 Ağu 2026","metin":"Şube/çalışan başına gider ve verimlilik gibi kaynak kullanımı ve performans etkinliğini ölçen KPI'ların sisteme eklenmesi."}]},{"g":"calisma","ad":"Takip Portföyünün Verimli ve Etkin Kullanılması","durum":"Çalışılıyor","giris":"21 Tem 2026","hedef":"—","sorumlu":"Hukuk İşleri ve Yasal Takip","amac":"Bankamız takip portföyünün etkin ve verimli yönetilmesi","kapsam":"Ticari ve bireysel kredi portföylerinde aksama, yapılandırma ve takipteki alacakların müşteri, ürün ve segment bazında kök neden analizi ile kullandırım yoğunlaşmaları ve teminat yapısının incelenmesi kapsam dahilindedir. Ayrıca yerel avukatlar ile Banka avukatlarının performans karşılaştırması, şube yetkisiyle tahsis edilip takibe düşen kredilerin GM'de kurulacak birimce takibi ve Kredi Risk Tasfiye ile Hukuk birimlerinin aynı çatı altında birleştirilmesi yer almaktadır.","kazanim":"Bankamız takip portföyünde yer alan müşterilerin ilgili birimler tarafından koordineli bir şekilde takip edilmesi sağlanarak, takip ve tahsilat çalışmalarında verimlilik artırılacak.","kararlar":[{"no":"Karar 25/1","tarih":"15 Eki 2026","metin":"Takip Portföyünün Verimli ve Etkin Yönetilmesi konusu kapsamında yapılan analiz çalışmasının düzenli olarak gerçekleştirilmesi, alınan aksiyonların sonuçlarının gözlemlenmesi ve belirli periyotlarla Dönüşüm Komitesi'ne sunulması"},{"no":"Karar 23/5","tarih":"1 Eki 2026","metin":"Bankamızın takipte izlenen risklerindeki artışa yönelik kök neden analizi yapılması; müşterilere yapılan kullandırımlardaki yoğunlaşmalar ile gelecekte risk artışına neden olabilecek müşteri, ürün ve segment bazlı unsurların analiz edilmesi; canlı/izleme/takip kredilerinin segment bazlı teminat yapısının analiz edilmesi ve yapılacak değerlendirme ve analizler doğrultusunda ilgili iş birimlerince gerekli önlem ve aksiyonların belirlenerek yol haritası oluşturulması ve konunun Dönüşüm Komitesi gündemine alınarak sunulması talimatı verilmiştir."},{"no":"Karar 15/1","tarih":"21 Tem 2026","metin":"Yerel avukatlar ile Banka avukatlarının performans karşılaştırmasının seçilecek illeri kapsayacak şekilde tekrarlanması ve sonuçların değerlendirilmesi."},{"no":"Karar 15/2","tarih":"21 Tem 2026","metin":"Şube yetkisiyle tahsis edilip takibe intikal eden kredilerin şube portföyünden çıkarılarak GM nezdinde kurulacak bir birim tarafından takip edilmesine yönelik çalışma yapılması."}]},{"g":"uygulama","ad":"Hukuk Görüşü Verilmesi Aşamasında Yapay Zeka Kullanımı","durum":"Faz 1 bitti","giris":"7 Tem 2026","hedef":"30 Eyl 2026","sorumlu":"Hukuk İşleri ve Yasal Takip","amac":"Şubelerin görüş talebinde bulunduğu konularda yapay zeka kullanılarak hızlı ve verimli bir şekilde doğru bilgiye erişilmesi","kapsam":"İlk aşamada teminat mektubu metinlerinin yapay zeka ile değerlendirilmesi, vekaletname ile yapılacak işlemler ve sıkça sorulan hukuki soruların yanıtlanması kapsam dahilindedir. Ayrıca teminat mektuplarında geçmiş görüşlerin tespiti ve metin değişikliklerinin vurgulanması, SSS asistanının Bizimyerimiz ve Bilio portallerinde sunulması ve mevduat işlemlerine ilişkin görüş süreçlerinde geliştirme yapılması planlanmaktadır.","kazanim":"Yapay zeka desteği ile zaman tasarrufu sağlanarak ve verimlilik artacak, doğru bilgiye hızlı bir şekilde ulaşılacak","kararlar":[{"no":"Karar 24/6","tarih":"9 Eki 2026","metin":"Teminat mektuplarında aynı muhatap ve metin için geçmiş hukuk görüşlerinin giriş aşamasında tespit edilmesi, Şubenin bilgilendirilmesi veya mevcut görüşün yeniden kullanılması alternatiflerinin değerlendirilmesi"},{"no":"Karar 24/7","tarih":"9 Eki 2026","metin":"Teminat mektuplarına ilişkin yapay zeka destekli hukuk görüşü sürecinde metin değişikliklerinin vurgulanarak gösterilmesine yönelik çalışma yapılması"},{"no":"Karar 24/8","tarih":"9 Eki 2026","metin":"Hukuk görüşlerine ilişkin sıkça sorulan soruları yanıtlayacak yapay zeka asistanının Bizimyerimiz ve Bilio portallerinde sunulmasına yönelik çalışma yapılması"},{"no":"Karar 10/3","tarih":"22 Haz 2026","metin":"Şubelerden gelen hukuki görüş taleplerinde yapay zekâ kullanımına ilişkin çalışma yapılması."}]},{"g":"calisma","ad":"Yeni Ürün Stratejisi","durum":"Çalışılıyor","giris":"6 Ağu 2026","hedef":"—","sorumlu":"Strateji ve Ürün Geliştirme Başkanlığı","amac":"Bankamızın yeni ürün stratejisinin genel çerçevesi Komiteye arz edilmiştir.\n\nKalkınma Odaklı Değer Bankacılığı çerçevesinde 7 ana başlık ve bu ana başlıkları besleyecek şekilde konumlanan “Yetkinliğe Değer” başlığı oluşturulmuş olup söz konusu başlıklar Ülkemizin Orta Vadeli Programı’nın 7 temel politika alanı (makroekonomik istikrar, Ar-Ge ve yenilik, yeşil-dijital dönüşüm, beşeri sermaye, işgücü piyasası, yatırım ortamı ve kamu mali çerçevesi) ile eşleştirilmiştir.\n1 Ticarete Değer\n2 Üretime Değer\n3 İstihdama Değer\n4 Girişimciliğe Değer\n5 İhracata Değer\n6 Dönüşüme Değer\n7 Geleceğe Değer\n8 Yetkinliğe Değer\nBaşlıkları altında Bankamızın halihazırdaki ürünleri, yeni oluşturulacak ve lansmanı yapılacak ürünler, KGF/İGE kefaletleri, yurtdışı kaynak temini, dış ticaret odaklı ürünler, dijital ürünler çerçevesinde bilgilendirme yapılmıştır.\n\nKomite katılımcıları ise özellikle KGF-Banka sistemsel entegrasyonu, çerçevesi arz edilen ürünlerin müşterilere nasıl sunulacağı ve nasıl kazanımlar elde edileceğine ilişkin sorular yöneltmişler ve konuya ilişkin değerlendirmelerini paylaşmışlardır.","kapsam":"Mevcut, yeni ve lansmanı planlanan ürünlerin (KGF/İGE kefaletleri, yurt dışı kaynak, dış ticaret ve dijital ürünler) bu başlıklar altında konumlandırılması kapsam dahilindedir. Alt başlıklar olarak VİNOV İş Yeri Mobil'in yaygınlaştırılması, SKY KOBİ 2.0 ile ihracat ve KGF kefaletli kredilerin dijital kullandırımı ve yapay zeka tabanlı akıllı ürün önerisi (NBA) yürütülmektedir.","kazanim":"VİNOV İş Yeri Mobil ile ürünün stratejik olarak belirlenmesinin ardından ilk bir haftada 2,2 milyar TL'lik kayıt oluşturulmuştur. SKY KOBİ 2.0 ile baz senaryoda yaklaşık 1,8 milyar TL ek nakdi kredi bakiyesi öngörülmekte; NBA modeliyle daha yüksek ürün derinliği ve daha verimli dijital satış hedeflenmektedir.","alt":["Vinov İş Yeri Mobil","Sky KOBİ 2.0","AI Tabanlı Akıllı Ürün Önerisi"]},{"g":"calisma","ad":"Ürün Fiyatlama Sürecinin İyileştirilmesi","durum":"Çalışılıyor","giris":"5 May 2026","hedef":"31 Mar 2027","sorumlu":"Ödeme Sistemleri Pazarlama Başkanlığı","amac":"Bankamızdaki kredi fiyatlaması mevcut durumda yaklaşık 9 adımda gerçekleşmekte, e-posta ve telefon trafiği yaşanmaktadır. Ayrıca verilen yetki, fiyat ve fiyatlamaya konu taahhütlerin geçmiş bilgisi merkezi olarak izlenememektedir. Yeni süreçte, tüm akışın sistem üzerine alınması, e-posta ve telefon trafiğinin azalması, yetki, fiyat ve taahhütlerin izlenebilir ve raporlanabilir olması amaçlanmaktadır.","kapsam":"Kredi fiyatlama ve pazarlık süreçlerinin VIT üzerinden yürütülmesi, belirlenen koşullarda şubelere fiyatlama yetkisi verilmesi ve bu yetkilerin sistem üzerinden izlenmesi hedeflenmektedir. Ayrıca müşteri verimliliği ve kârlılığının fiyatlamada dikkate alınması, kredi kullandırım taahhütlerinin tanımlanarak gerçekleşmelerinin takip edilmesi kapsam dahilindedir.","kazanim":"Görev ataması ve hatırlatma mekanizmalarının güçlenmesi, hedef müşteri gruplarına, kanallara ve koşullara göre hızlı bir biçimde kampanya tanımlanabilmesi sağlanacaktır.","kararlar":[{"no":"Karar 17/1","tarih":"28 Tem 2026","metin":"Ürün Fiyatlama hedef tarihinin 30.09.2026'dan 31.12.2026'ya güncellenmesi; üye işyeri fiyatlamasının VFA üzerinden segmentlerle birlikte belirlenmesi için Ödeme Sistemleri Pazarlama ve Pazarlama Başkanlıklarının çalışma yapması."},{"no":"Karar 10/4","tarih":"22 Haz 2026","metin":"VIT-VFA yapısında hata payı olup olmadığına ilişkin çalışma yapılması."},{"no":"Karar 6/1","tarih":"25 May 2026","metin":"Normal fiyat dışı hareketler için pazarlama onayının zorunlu hale getirilmesi; fiyatlamanın uçtan uca sistem üzerinden alınması (1 Ekim 2026 canlı)."},{"no":"Karar 6/2","tarih":"25 May 2026","metin":"Üye işyeri fiyatlamalarındaki süreç değişikliğinin 1 Ekim'e kadar tamamlanması; ilgili ekiplerden aksiyon planı talep edilmesi."}]},{"g":"calisma","ad":"Ticari Kredi Süreçlerinin İyileştirilmesi","durum":"Çalışılıyor","giris":"5 May 2026","hedef":"31 Ara 2026","sorumlu":"Kurumsal ve Ticari Krediler Tahsis Yönetimi Başkanlığı 1, Kurumsal ve Ticari Krediler Tahsis Yönetimi Başkanlığı 2","amac":"Kredi tahsis süreçlerinin tamamının Ticari Kredi Dönüşüm Projesi’ne dahil edilerek mevcut ikili yapının giderilmesi.","kapsam":"PLATO'ya taşınmamış müşteri ve dosyaların 31.12.2026'ya kadar aktarılması ve tahsis ile operasyon birimlerinden oluşan proje ekibiyle geçiş sürecinin yürütülmesi kapsam dahilindedir. Ayrıca şubelerden gelen öneri ve şikayetler doğrultusunda TKD ekranlarının tekilleştirilmesi ile teminat, limit ve kullandırım kurgularına ilişkin sistemsel geliştirmeler yapılmaktadır.","kazanim":"Kredi tahsis süreçlerinde ikili yapı ortadan kalkacak, yeknesaklık sağlanacak ve tüm süreçler tek akış ile VIT sistemi üzerinden tamamlanacak.","kararlar":[{"no":"Karar 26/1","tarih":"23 Eki 2026","metin":"Sunumu gerçekleştirilen “Ticari Kredi Süreçlerinin İyileştirilmesi” ve “Bilgi Teknolojileri Ekipleri Tarafından Yürütülen Projeler” başlıklarının, tüm Genel Müdür Yardımcıları ve Grup Başkanlarının katılımıyla gerçekleştirilecek bir Dönüşüm Komitesi toplantısında yeniden gündeme alınarak ilgili çalışmalar hakkında kapsamlı bilgilendirme yapılmasına karar verilmiştir."},{"no":"Karar 13/1","tarih":"7 Tem 2026","metin":"TKD projesinin operasyon ve tahsis ekiplerince kurulacak çalışma grubu ile yıl sonuna kadar tamamlanması."},{"no":"Karar 11/1","tarih":"27 Haz 2026","metin":"Tahsis ve operasyon birimlerince proje ekibi oluşturularak platoya geçiş sürecinin 31.12.2026 tarihine kadar tamamlanması."},{"no":"Karar 10/1","tarih":"22 Haz 2026","metin":"B2B ve Firma İş Süreçleri Platformu, Kripto Hizmetleri ve TKD projesinin ayrı oturumlarda sunulması."}]},{"g":"calisma","ad":"Veri Kalitesi","durum":"Çalışılıyor","giris":"28 Tem 2026","hedef":"31 Ara 2026","sorumlu":"Güvenli Bankacılık Başkanlığı","amac":"Bankamız verilerinin kalitesini ve doğruluğunu sağlama","kapsam":"Müşteri veri kalitesine yönelik kural setleri ve görev atamaları, çalışılan kurum bilgisinin bordro/SGK verisinden otomatik doldurulması ve ürün kullandırımında eksik bilgi güncellemesinin zorunlu hale getirilmesi kapsam dahilindedir. Ayrıca e-posta adreslerinin doğrulanması, mobilden müşteri bilgisi doğrulama ve güncelleme, profil doluluk oranı gösterimi ve veri tüketen birimlerin de kural tanımlayabilmesi planlanmaktadır.","kazanim":"Bankamız müşteri verilerinin doğruluğu ve doluluğu sağlanarak bankacılık faaliyetleri daha verimli gerçekleştirilecek.","kararlar":[{"no":"Karar 17/2","tarih":"28 Tem 2026","metin":"Veri kalitesi için: çalışılan kurum bilgisinin bordro/SGK'dan otomatik doldurulması, ürün kullandırımında eksik bilgi güncellemesinin zorunlu olması, YZ projelerini destekleyen kural altyapısı, veri tüketenlerin de kural tanımlayabilmesi."}]},{"g":"uygulama","ad":"Yurt Dışı İştirakler Ana Bankacılık Uygulaması","durum":"Faz 1 bitti","giris":"7 Tem 2026","hedef":"30 Eyl 2026","sorumlu":"Kredi, Hazine ve Dış İşlemler Uygulama Geliştirme Başkanlığı","amac":"VakıfBank International AG'nin ana bankacılık uygulamasının ayağa kaldırılması, aynı zamanda Bankamız iç kaynakları ile ihtiyaçların karşılanacağı bir uygulama yazılması","kapsam":"Çalışma analiz, entegrasyon, geliştirme ve devreye alma adımlarını kapsamaktadır. Viyana Şubesi ana bankacılık sistemi geliştirme projesinde 31 ekibin 3 grup altında çalışması planlanmış olup ilk grup Müşteri, Mevduat, Muhasebe ve DYS modüllerini kapsamaktadır; dış firmadan temin edilen uygulamada bireysel internet bankacılığı çalışmaları da sürdürülmektedir.","kazanim":"Yurt dışı iştiraklerde teknoloji bağımsızlığının artırılması, ana bankacılık altyapısında kurum içi geliştirme kabiliyetlerinin güçlendirilmesi ve sürdürülebilir sistem mimarisi oluşturulması","kararlar":[{"no":"Karar 13/5","tarih":"7 Tem 2026","metin":"Yurt Dışı İştirakler Ana Bankacılık uygulamasının ayağa kaldırılması; iç kaynaklarla iştirak ihtiyaçlarını karşılayacak uygulama yazılması."}]},{"g":"tamam","ad":"Yurt Dışı İştirakler ODM Testleri","durum":"Tamamlandı","giris":"7 Tem 2026","hedef":"30 Kas 2026","sorumlu":"Güvenli Bankacılık Başkanlığı","amac":"VakıfBank International AG Olağanüstü Durum Merkezi iş sürekliliği testlerinin Güvenli Bankacılık Başkanlığı tarafından gerçekleştirilmesi","kapsam":"Yurt dışı iştiraklerin ODM ve iş sürekliliği testlerinin Güvenli Bankacılık Başkanlığı tarafından planlanması ve gerçekleştirilmesi kapsam dahilindedir; ilk olarak VakıfBank International Viyana Şubesi ODM testi ele alınmıştır.","kazanim":"Yurt dışı iştiraklerde iş sürekliliği kabiliyetinin güçlendirilmesi, operasyonel dayanıklılığın artırılması ve güvenli bankacılık standartlarının iştirak süreçlerine yaygınlaştırılması","kararlar":[{"no":"Karar 13/6","tarih":"7 Tem 2026","metin":"Yurt Dışı İştiraklerin ODM testlerinin Güvenli Bankacılık Başkanlığı tarafından gerçekleştirilmesi."}]},{"g":"calisma","ad":"Ödeme Sistemleri Dönüşümü","durum":"Çalışılıyor","giris":"7 Tem 2026","hedef":"31 Ara 2027","sorumlu":"Bilgi Teknolojileri, Dijital Bankacılık, Ödeme Sistemleri ve Kurumsal İletişim","amac":"Kritik bankacılık altyapılarında dışa bağımlılığın azaltılması, teknoloji sahipliğinin güçlendirilmesi ve kredi kartı altyapısında kurum içi geliştirme kabiliyetinin artırılması","kapsam":"Kredi kartı, debit/prepaid, Tarım Kart ve üye işyeri işlemlerinin kanal entegrasyonları ve dönüşümü (conversion), VISA/CUP/MIR switch entegrasyonları, POSMER/PGW entegrasyonu ve sanal POS altyapısı kapsam dahilindedir. Ayrıca kampanya ve puan yönetimi, fraud modülü, reeskont/mutabakat, DWH aktarımları ve yasal raporlama ile yurt içi/yurt dışı iştiraklerin ihtiyaçlarına yönelik modüler geliştirmeler yürütülmektedir.","kazanim":"Kritik bankacılık altyapılarında dışa bağımlılığın azaltılması, teknoloji sahipliğinin güçlendirilmesi ve kredi kartı altyapısında kurum içi geliştirme kabiliyetinin artırılması","kararlar":[{"no":"Karar 13/7","tarih":"7 Tem 2026","metin":"Banksoft altyapısı yerine Bankamız kaynaklarıyla oluşturulacak altyapıya geçilmesinin Komite gündemine alınarak takip edilmesi."}]},{"g":"calisma","ad":"Analitik Mevduat Fiyatlama","durum":"Çalışılıyor","giris":"8 Haz 2026","hedef":"31 Ara 2026","sorumlu":"Mevduat Yönetimi ve Pazarlama Başkanlığı, Hazine Pazarlama Başkanlığı","amac":"Bireysel fiyatlamanın dinamik hale getirilmesi, kurumsal fiyatlamadaki sürecin kısaltılması, segment farklılıklarına göre oluşturulan mevduat operasyon akışlarında yeknesaklık sağlanması","kapsam":"Hazine ve Mevduat Yönetimi'nin kullandığı veri girdilerinin makine öğrenmesi modelleriyle skorlanması, müşteri bazlı rekabetçi fiyatlama yaklaşımının geliştirilmesi ve tüm fiyatlama taleplerinin VIT üzerinden yönetilmesi kapsam dahilindedir. İkinci fazda müşteri davranış skorlama mekanizmasının geliştirilmesi planlanmaktadır.","kazanim":"GM yetkisindeki fiyatlamada %50 azalış. 10 baz puan kazanımda 277 Mn TL, 20 baz puanda 554 Mn TL mali kazanım. Günlük 300 telefon / 900 e-posta trafiğinde %50 azalış."},{"g":"calisma","ad":"Ödeme ve Tahsilat Platformu","durum":"Çalışılıyor","giris":"8 Haz 2026","hedef":"—","sorumlu":"Ürün Geliştirme, Nakit Yönetimi ve Dış Ticaret Pazarlama Başkanlığı","amac":"Firmalar ve şahıs şirketlerine yönelik başta Nakit Yönetimi, Ödeme Sistemleri ile Nakdi ve Gayrinakdi Kredi ürünleri olmak üzere Bankamız ürünlerinin yanı sıra iş ortakları tarafından sunulan e-ihracat, e-ticaret, finans/muhasebe ve şirket içi yönetim çözümleri gibi katma değerli ürün ve hizmetlerin tek bir platform üzerinden sunulması ve bu suretle pazarlama faaliyetlerimizin desteklenmesi amaçlanmaktadır.","kapsam":"Platformun İnternet Bankacılığı kanalı üzerinden kurulması, Platform Bankacılığı modülünün tanımlanması ve ön yüzün Açık Bankacılık ekibi tarafından geliştirilmesi kapsam dahilindedir. VİNOV, tedarikçi ve bayi finansmanı ürünlerinin platform çatısı altında konumlandırılması ile muhasebe/e-fatura gibi dış firma entegrasyonları da planlanmaktadır.","kazanim":"Platformun temel işlevi, ürünleri sergilemek değil; müşterinin alacağını, tahsilatını, finansman ihtiyacını ve ödemesini birbirine bağlayan bütünsel bir nakit akışı yönetimi sunmaktır.","kararlar":[{"no":"Karar 13/2","tarih":"7 Tem 2026","metin":"Ödeme ve Tahsilat Platformunun İnternet Bankacılığı kanalı üzerinden kurulmasına ilişkin organizasyonel yapı ve ihtiyaçların belirlenerek YK'ya arz edilmesi."},{"no":"Karar 12/1","tarih":"4 Tem 2026","metin":"Ödeme ve Tahsilat Platformu için organizasyonel yapı, uygulama modeli ve ihtiyaçların belirlenerek Yönetim Kurulu'na arz edilmesi."},{"no":"Karar 10/1","tarih":"22 Haz 2026","metin":"B2B ve Firma İş Süreçleri Platformu, Kripto Hizmetleri ve TKD projesinin ayrı oturumlarda sunulması."},{"no":"Karar 9/1","tarih":"16 Haz 2026","metin":"B2B ve Firma İş Yönetimi Platformu için gelir modeli, organizasyon, kaynak, maliyet ve kazanım içeren detaylı fizibilite hazırlanması."}]},{"g":"calisma","ad":"Kripto Hizmetleri","durum":"Çalışılıyor","giris":"8 Haz 2026","hedef":"—","sorumlu":"Hazine Pazarlama Başkanlığı","amac":"Blokzincir teknolojisi kapsamında alım-satım platformu ve saklama hizmeti alanında yapılacak çalışmaların değerlendirilmesi.","kapsam":"Sektör gelişmeleri, regülasyonlar ve kamu bankalarının konumlanmasının değerlendirilmesi ile pazar büyüklüğü, gelir potansiyeli, maliyet yapısı ve operasyonel gereksinimlerin analiz edilmesi kapsam dahilindedir. Öncelikle diğer kamu bankalarıyla ortak platform ve iş birliği alternatiflerinin görüşülmesi, sonuç alınamaması halinde Banka nezdinde saklama hizmetine yönelik çalışmaların başlatılması planlanmaktadır.","kazanim":"Günümüz ve gelecek teknolojisi ile uyum için kripto alım-satım platformu, saklama hizmeti ve tokenizasyon konularında hizmet verilecek.","kararlar":[{"no":"Karar 23/4","tarih":"1 Eki 2026","metin":"Kripto Hizmetleri konusu kapsamında, saklama hizmetine ilişkin kamu bankalarıyla ortak hareket edilmesine yönelik değerlendirme yapılarak bilgi notu hazırlanması ve konunun üst yönetim seviyesinde yeniden ele alınması talimatı verilmiştir."},{"no":"Karar 13/3","tarih":"7 Tem 2026","metin":"Kripto Hizmetlerinde kamu bankalarıyla ortak platform alternatiflerinin önce Başkan, sonra GMY seviyesinde tamamlanarak yol haritasının çıkarılması."},{"no":"Karar 12/2","tarih":"4 Tem 2026","metin":"Kripto Hizmetleri için diğer kamu bankalarıyla iş birliği görüşmesi yapılması; sonuç alınamazsa saklama hizmeti çalışmalarının başlatılması."},{"no":"Karar 10/1","tarih":"22 Haz 2026","metin":"B2B ve Firma İş Süreçleri Platformu, Kripto Hizmetleri ve TKD projesinin ayrı oturumlarda sunulması."}]},{"g":"uygulama","ad":"Yapay Zeka ile Dış Mevzuat Taraması","durum":"Faz 1 bitti","giris":"8 Haz 2026","hedef":"30 Eyl 2026","sorumlu":"Uyum ve Mevzuat Başkanlığı","amac":"Yapay zeka taraması ile Bankayı ilgilendiren mevzuat değişikliklerinin tespit edilmesi.","kapsam":"Resmî Gazete ile Merkez Bankası başta olmak üzere 25 kurumun internet sitesinin Regvion aracılığıyla düzenli izlenmesi ve yeni düzenlemelerin yapay zeka destekli özet, yükümlülük ve ilgili birim bilgileriyle bildirilmesi kapsam dahilindedir. Ayrıca uygulamanın iştiraklerde kullanılması, bildirimlerin VIP App ve Kurumsal Duyuru Sistemi'nde yayımlanması ve iç mevzuata etki analizi için yapay zeka asistanı geliştirilmesi planlanmaktadır.","kazanim":"Mevzuat değişiklikleri zamanında tespit edilerek uyum kapasitesi artacak; operasyonel verimlilik sağlanarak çalışan ihtiyacı azalacak.","kararlar":[{"no":"Karar 24/1","tarih":"9 Eki 2026","metin":"Mevzuat takibi uygulamasının Bankamız iştiraklerinde de kullanılmasına yönelik çalışma yapılması"},{"no":"Karar 24/2","tarih":"9 Eki 2026","metin":"Mevzuat değişikliklerinden kaynaklanan aksiyonların takibine ilişkin İç Sistemler Grup Başkanlığınca yürütülen çalışmalar sonucunda öngörülen organizasyonel değişikliklerin Dönüşüm Komitesi'ne sunulması"},{"no":"Karar 24/3","tarih":"9 Eki 2026","metin":"Mevzuat değişikliklerine ilişkin bilgilendirmelerin VIP App üzerinden de yapılmasına yönelik çalışma yürütülmesi"},{"no":"Karar 24/4","tarih":"9 Eki 2026","metin":"Mevzuat değişikliklerinin Bankamızın iç mevzuatına, uygulamalarına ve ürünlerine etkilerinin değerlendirilmesini destekleyecek yapay zeka asistanı için proje talebi oluşturulması"}]},{"g":"calisma","ad":"Analitik Şube & Portföy Hedef Yönetimi","durum":"Çalışılıyor","giris":"5 May 2026","hedef":"31 Ara 2026","sorumlu":"Performans Yönetimi Başkanlığı","amac":"Banka içi ve dışı girdiler (mevsimsellik, sektör, şube performansı) kullanılarak analiz yapılması; sonucun tüm hedef verme aşamalarında girdi olarak kullanılması.","kapsam":"Satış hedeflerinin banka içi ve dışı verilerle analiz edilerek sahaya bildirilmesi, segmentlerin hedef kalemlerini belirlemesi ve operasyon kalite hedeflerinin şube satış çalışanlarına verilmesi kapsam dahilindedir. Bu çerçevede takım bazlı müşteri yoğunlaşma analizi, il bazlı mevduat/kredi veri tabanı ve Mastercard iş birliğiyle ilçe bazlı potansiyel analizleri yürütülmektedir.","kazanim":"Analitik modeller ve optimizasyon çıktıları ile stratejik hedefler doğrultusunda tüm hedef kalemleri için hedefleme çalışmaları yapılacak.","kararlar":[{"no":"Karar 6/3","tarih":"25 May 2026","metin":"Hedef Yönetimi için Performans Yönetimi Başkanlığı ve Segment Pazarlama Başkanlıklarından aksiyon planı ve takvim talep edilmesi."},{"no":"Karar 3/1","tarih":"5 May 2026","metin":"İyileştirme alanlarından sorumlu birimlerin aksiyon planlarını oluşturması ve takvimin Dönüşüm Komitesi ile paylaşılması."}]},{"g":"calisma","ad":"Doküman Yönetim Sisteminin İyileştirilmesi","durum":"Çalışılıyor","giris":"5 May 2026","hedef":"31 Ara 2026","sorumlu":"Mevduat ve Yatırım Operasyonları Başkanlığı","amac":"Doküman yönetim sisteminde yapılacak iyileştirmeler ile mevcut yapay zeka ve OCR teknolojilerinin kontrollerinin artırılması ve süreçsel iyileştirmeler.","kapsam":"Yapay zeka sonucuna göre belge aktarım engeli, sayfa sayısı ve kimlik tarama zorunluluğu kontrolleri, OCR performans iyileştirmesi ve imza/fotoğraf güncelleme iş akışı kapsam dahilindedir. Ayrıca müşteri eksik belgelerinin ve sözleşme/form onaylarının (BÜHPS, KVKK, internet bankacılığı tanım formu) dijital kanallardan alınması ile tüzel müşteri tanımında dijital onay planlanmaktadır.","kazanim":"Mükerrer tarama engellenecek, operasyonel hata azalacak, OCR performansı iyileşecek. Toplam 6.229 Adam/Gün iş gücü ve zaman tasarrufu.","kararlar":[{"no":"Karar 7/1","tarih":"1 Haz 2026","metin":"DYS kapsamında gerekirse hukuk görüşü alınarak takvimin netleştirilmesi ve çalışmaların hızlandırılması; 9 Planet talebinin önceliklendirilmesi için PYM'ye bilgi verilmesi."},{"no":"Karar 6/6","tarih":"25 May 2026","metin":"DYS projesinin güncel ilerleme durumu hakkında Mevduat ve Yatırım Operasyonları Başkanlığından bilgi istenmesi."},{"no":"Karar 3/1","tarih":"5 May 2026","metin":"İyileştirme alanlarından sorumlu birimlerin aksiyon planlarını oluşturması ve takvimin Dönüşüm Komitesi ile paylaşılması."}]},{"g":"tamam","ad":"Dekontların Dijital Kanallardan Doğrulanması","durum":"Tamamlandı","giris":"5 May 2026","hedef":"—","sorumlu":"Dijital Bankacılık ve Dağıtım Kanalları Başkanlığı","amac":"Dijital kanallardan oluşturulan dekontlara eklenecek QR-Belge Kodu ile müşterilerin dekontlarını doğrulayabilmesi.","kapsam":"Mobil Bankacılık, İnternet Bankacılığı ve web sitesi üzerinden dekont doğrulama altyapısının kurulması ve dijital kanallarda üretilen dekontlara QR kodu ile belge numarası eklenmesi kapsam dahilindedir.","kazanim":"Fiziki imza, onay ve arşiv süreçleri ortadan kalkacak; sıfır sahtecilik riski, anlık teyit ve iyileşen müşteri deneyimi sağlanacak.","kararlar":[{"no":"Karar 3/1","tarih":"5 May 2026","metin":"İyileştirme alanlarından sorumlu birimlerin aksiyon planlarını oluşturması ve takvimin Dönüşüm Komitesi ile paylaşılması."}]},{"g":"calisma","ad":"Şube Süreçlerinin Dijitalleştirilmesi","durum":"Çalışılıyor","giris":"16 Haz 2026","hedef":"—","sorumlu":"Ürün Geliştirme, Nakit Yönetimi ve Dış Ticaret Pazarlama Başkanlığı","amac":"Müşteri şikayetlerine yol açan başta hesap açılış işlemleri ve sözleşmeler olmak üzere Şubede gerçekleştirilen işlemlerin dijitalleştirilerek sadeleştirilmesi.","kapsam":"Bireysel ve ticari hesap açılış süreçleri ile sözleşmelerin diğer banka uygulamalarıyla karşılaştırmalı analiz edilerek sadeleştirilmesi, TÜHPS ve tüzel müşteri tanımında dijital onay, SIM kart bloke kaldırımı ve GKS süreçlerinin dijitalleştirilmesi kapsam dahilindedir. Ayrıca kamulaştırma işlemlerinin şubelerden alınarak Mevduat Operasyonları bünyesinde merkezileştirilmesi bu başlık altında izlenmektedir.","kazanim":"Sözleşmelerin sadeleştirilmesi, hesap açma süreçlerinin gözden geçirilmesi ve sözleşme onaylarının dijitalleşmesi ile müşteri memnuniyeti artacak, süreçler hızlanacak.","alt":["Kamulaştırma İşlemleri Merkezileştirme"],"kararlar":[{"no":"Karar 21/2","tarih":"11 Eyl 2026","metin":"Kamulaştırma sürecinin iyileştirilmesine ilişkin çalışmaların Şube Süreçlerinin Dijitalleştirilmesi başlığı altında izlenmesi."},{"no":"Karar 10/6","tarih":"22 Haz 2026","metin":"Müşteri şikâyetlerine sebep olan bireysel ve ticari hesap açılış süreçleri ve sözleşmelerdeki problemlerin tespiti ve sadeleştirme yapılması."}]},{"g":"uygulama","ad":"Dijital Makam Onayı","durum":"Faz 2 bitti","giris":"8 Haz 2026","hedef":"30 Eyl 2026","sorumlu":"Kurumsal Gelişim ve Akademi Başkanlığı, Kurumsal Mimari ve Akademi Başkanlığı","amac":"Süreç tabanlı iş akışlarında çok seviyeli makam onayı mekanizmasının dijital ortamda yönetilmesi.","kapsam":"Sistemde akışı bulunmayan ve yılda yaklaşık 2.424 işlem ile 15 bin sayfa kağıtla yürütülen makam onaylarının dijital ortama taşınması kapsam dahilindedir. Rol ve yetki bazlı erişim, değiştirilemez işlem geçmişi ve belge versiyon kontrolünün yanı sıra YK Müzekkereleri'nin kapsama alınması ve VIP App Onaylar entegrasyonu planlanmaktadır.","kazanim":"Onay akışı dijitalleşecek, onay takibi anlık izlenecek, merkezi dijital arşivleme yapılacak ve hata riski minimize edilecek.","kararlar":[{"no":"Karar 22/2","tarih":"18 Eyl 2026","metin":"Dijital Makam Onayı uygulamasının yaygınlaştırılması için ilgili birimlerin bilgilendirilmesi ve uygulamanın Banka genelinde duyurulması."},{"no":"Karar 9/3","tarih":"16 Haz 2026","metin":"Dijital Makam Onayı ihtiyaçlarının yıl sonu beklenmeden değerlendirilmesi; çevik yaklaşımla hayata geçirilmesi."},{"no":"Karar 9/4","tarih":"16 Haz 2026","metin":"Dijital Makam Onayı, YZ Firma Tanıtım, YZ Maaş Promosyon, Dijital Performans Puanı ve YZ Dış Mevzuat için sayısal veri ve kazanım içeren aksiyon planı hazırlanması ve tamamlanma tarihlerinin belirlenmesi."},{"no":"Karar 8/2","tarih":"8 Haz 2026","metin":"Dijital Makam Onayı, YZ Firma Tanıtım Formu, YZ Maaş Promosyon, Dijital Performans Puanı, Dekont Tekleştirme ve YZ Dış Mevzuat projelerinin ilgili başkanlıklarca değerlendirilmesi; sayısal veri ve tahmini kazanım içeren aksiyon planı hazırlanması."}]},{"g":"calisma","ad":"Banka Duyuru Sisteminin İyileştirilmesi","durum":"Çalışılıyor","giris":"5 May 2026","hedef":"31 Ara 2026","sorumlu":"Uyum ve Mevzuat Başkanlığı, Kurumsal Gelişim ve Akademi Başkanlığı","amac":"Yapay zeka destekli çalışma ile banka içi duyurulara erişimin kolaylaştırılması, duyuru yapısının sadeleştirilmesi, özet ve istenilen aksiyon bölümlerinin eklenmesi.","kapsam":"Tebliğ özet alanının yapay zeka desteğiyle oluşturulması, gerektiğinde görev ataması olarak düzenlenebilmesi ve etiketleme ile güçlü bir arama motoru kurulması kapsam dahilindedir. Ayrıca güncel olmayan mevzuatın temizlenmesi, onaycı kurgusunun yeniden tasarlanması ve tespit edilen dış mevzuat değişikliklerinin de sistemde yayımlanması planlanmaktadır.","kazanim":"Kontrolsüz dağılımın önüne geçilecek; erişim zorluğu ve karmaşık yapı ortadan kalkacak. Arama başına tasarruf ile yıllık toplam 9,2 Milyon Dakika süre kazanımı.","kararlar":[{"no":"Karar 3/1","tarih":"5 May 2026","metin":"İyileştirme alanlarından sorumlu birimlerin aksiyon planlarını oluşturması ve takvimin Dönüşüm Komitesi ile paylaşılması."}]},{"g":"uygulama","ad":"Dijital Performans Puanı","durum":"Faz 1 bitti","giris":"8 Haz 2026","hedef":"30 Eyl 2026","sorumlu":"Performans Yönetimi Başkanlığı","amac":"Müşterilerin dijital işlem yapmaya yönlendirilmesi ile Bankanın dijitalleşmesine katkı sağlanması.","kapsam":"Şubeden müşteri olmada dijital onay alınması, DTO/TÖS toplu ödeme yüklemelerinin müşteri tarafından yapılması ve talimatların \"Şubeye Talimat Gönder\" ekranından alınmasına yönelik göstergelerin satış personeline KPI olarak verilmesi kapsam dahilindedir. Kriterlerin segment görüşleri alınarak 2026-Q4 performans ölçümüne dahil edilmesi planlanmaktadır.","kazanim":"“Dijital Müşteri” hedefi ile tarama sayısının azaltılması, ticari/karma şubelerde talimatların dijital kanaldan gönderilmesi ve toplu işlem yüklemelerinin müşteri tarafından yapılması.","kararlar":[{"no":"Karar 22/1","tarih":"18 Eyl 2026","metin":"Dijital Performans Puanı: şubeden müşteri olmada dijital onay, DTO/TÖS toplu ödemelerin müşteri tarafından yapılması ve talimatların 'Talimat Gönder' ekranından alınması için satış personeline KPI verilmesi; segment görüşleri alınarak 2026-Q4 performans ölçümüne dahil edilmesi."},{"no":"Karar 9/4","tarih":"16 Haz 2026","metin":"Dijital Makam Onayı, YZ Firma Tanıtım, YZ Maaş Promosyon, Dijital Performans Puanı ve YZ Dış Mevzuat için sayısal veri ve kazanım içeren aksiyon planı hazırlanması ve tamamlanma tarihlerinin belirlenmesi."},{"no":"Karar 8/2","tarih":"8 Haz 2026","metin":"Dijital Makam Onayı, YZ Firma Tanıtım Formu, YZ Maaş Promosyon, Dijital Performans Puanı, Dekont Tekleştirme ve YZ Dış Mevzuat projelerinin ilgili başkanlıklarca değerlendirilmesi; sayısal veri ve tahmini kazanım içeren aksiyon planı hazırlanması."}]},{"g":"calisma","ad":"Farklı Dekont Şablonlarının Tek Şablona Çevrilmesi (Dekont Dönüşümü)","durum":"Çalışılıyor","giris":"8 Haz 2026","hedef":"31 Mar 2027","sorumlu":"Mevduat ve Yatırım Operasyonları Başkanlığı, Bankacılık Operasyonları Başkanlığı","amac":"Farklı şablonlarda ve farklı birimlerce kontrol edilen dekont yapısının sadeleştirilerek tek şablona oturtulması.","kapsam":"Tespit edilen 373 farklı dekont şablonunun (son 6 ayda 234'ü kullanılmıştır) gözden geçirilmesi ve TCKN/VKN, adres, unvan gibi zorunlu unsurların tüm şablonlarda standartlaştırılması kapsam dahilindedir. Ayrıca dekont kontrol sorumluluğunun sadeleştirilmesi ve e-dekont uygulamasının yaygınlaştırılması planlanmaktadır.","kazanim":"Standart kurum dili oluşturulacak, okunabilirlik ve müşteri deneyimi iyileşecek; dekont değişiklikleri hızlı gerçekleştirilecek.","kararlar":[{"no":"Karar 10/7","tarih":"22 Haz 2026","metin":"Farklı şablonlardan oluşan dekont yapısının sadeleştirilmesi."},{"no":"Karar 8/2","tarih":"8 Haz 2026","metin":"Dijital Makam Onayı, YZ Firma Tanıtım Formu, YZ Maaş Promosyon, Dijital Performans Puanı, Dekont Tekleştirme ve YZ Dış Mevzuat projelerinin ilgili başkanlıklarca değerlendirilmesi; sayısal veri ve tahmini kazanım içeren aksiyon planı hazırlanması."}]},{"g":"uygulama","ad":"Maaş Promosyon Süreçlerinin İyileştirilmesi","durum":"Faz 1 bitti","giris":"8 Haz 2026","hedef":"30 Eyl 2026","sorumlu":"Bireysel Bankacılık Pazarlama Başkanlığı","amac":"Maaş promosyon teklif sürecinin uçtan uca sistem üzerinden gerçekleştirilmesi ve şube veri girişlerindeki anomalilerin yapay zeka ile engellenmesi.","kapsam":"Çalışan sayısı, maaş ve bordro verilerinin analiz edilmesi, veri girişlerindeki anomalilerin tespiti ve teklif mektubunun otomatik oluşturulması ilk faz kapsamındadır. Teklif optimizasyonu ve VIT entegre yapay zeka destekli ihale teklifi süreci (Faz-2) sonraki aşamada ele alınmaktadır.","kazanim":"Manuel iş adımları sisteme alınarak operasyonel verimlilik sağlanacak; hatalı veri girişleri önlenerek tekrar eden iş yükü ortadan kalkacak.","kararlar":[{"no":"Karar 9/4","tarih":"16 Haz 2026","metin":"Dijital Makam Onayı, YZ Firma Tanıtım, YZ Maaş Promosyon, Dijital Performans Puanı ve YZ Dış Mevzuat için sayısal veri ve kazanım içeren aksiyon planı hazırlanması ve tamamlanma tarihlerinin belirlenmesi."},{"no":"Karar 8/2","tarih":"8 Haz 2026","metin":"Dijital Makam Onayı, YZ Firma Tanıtım Formu, YZ Maaş Promosyon, Dijital Performans Puanı, Dekont Tekleştirme ve YZ Dış Mevzuat projelerinin ilgili başkanlıklarca değerlendirilmesi; sayısal veri ve tahmini kazanım içeren aksiyon planı hazırlanması."}]},{"g":"uygulama","ad":"Yapay Zeka Firma Tanıtım Formu","durum":"Faz 1 bitti","giris":"8 Haz 2026","hedef":"—","sorumlu":"Değerlendirme ve Derecelendirme Başkanlığı","amac":"Şube çalışanlarının firmalara ilişkin özlük, moralite, reyting ve mali verilere tek yerden hızlı erişmesi ve yapay zeka yorumu ile önemli bilgilere anında ulaşması.","kapsam":"Ticaret Sicil Gazetesi, MERSİS ve diğer dış veri kaynaklarından elde edilen sermaye değişiklikleri, ortaklık yapıları, mali göstergeler ve risk bilgilerinin yapay zeka ile özetlenmesi kapsam dahilindedir. Skor tarihinden sonraki gelişmelerin (mali veri, mizan, ticaret sicil, moralite) tek ekrandan izlenmesi, şubelere öneri/uyarı mekanizmaları ve yapay zeka destekli tahsis analiz föyü de planlanmaktadır.","kazanim":"Bir firma için ortalama 30 dakika süren manuel sorgulamalar, yapay zeka destekli tanıtım föyü ile saniyeler içinde hazır hale gelecek.","kararlar":[{"no":"Karar 9/4","tarih":"16 Haz 2026","metin":"Dijital Makam Onayı, YZ Firma Tanıtım, YZ Maaş Promosyon, Dijital Performans Puanı ve YZ Dış Mevzuat için sayısal veri ve kazanım içeren aksiyon planı hazırlanması ve tamamlanma tarihlerinin belirlenmesi."},{"no":"Karar 8/2","tarih":"8 Haz 2026","metin":"Dijital Makam Onayı, YZ Firma Tanıtım Formu, YZ Maaş Promosyon, Dijital Performans Puanı, Dekont Tekleştirme ve YZ Dış Mevzuat projelerinin ilgili başkanlıklarca değerlendirilmesi; sayısal veri ve tahmini kazanım içeren aksiyon planı hazırlanması."}]},{"g":"tamam","ad":"Mevduat Yönetiminin Organizasyonel Değerlendirmesi","durum":"Tamamlandı","giris":"22 Tem 2026","hedef":"—","sorumlu":"İnsan Kaynakları, Kurumsal Mimari ve Akademi, Performans Yönetimi, KOBİ, Perakende ve Bireysel Bankacılık, Kurumsal ve Ticari Bankacılık, Hazine Yönetimi","amac":"Bankamızdaki mevduat fiyatlamasının organizasyonel anlamda farklı sorumlular tarafından yapılmasının ortadan kaldırılması.","kapsam":"Mevduat fiyatlaması yapan iş birimlerinin organizasyon şemasındaki konumuna ilişkin alternatiflerin avantaj ve dezavantajlarıyla değerlendirilmesi kapsam dahilindedir. Bu çerçevede Başkanlığın Hazine Yönetimi GMY'ye bağlanması ve müdürlüklerin KOBİ, Perakende ve Bireysel ile Kurumsal ve Ticari Mevduat Yönetimi olarak yeniden yapılandırılması kararlaştırılmıştır.","kazanim":"Hazine Yönetimi Genel Müdür Yardımcılığı bünyesinde yer alan mevduat fiyatlama başkanlıklarının, fiyatlamaya etki eden değişkenleri ortak bir yaklaşımla değerlendirerek bütünleşik bir fiyatlama süreci oluşturulması sağlanacak.","kararlar":[{"no":"Karar 16/1","tarih":"22 Tem 2026","metin":"Mevduat Yönetimi ve Pazarlama Başkanlığı'nın Hazine Yönetimi GMY'ye bağlanması; Mevduat Pazarlama Md → KOBİ, Perakende ve Bireysel Mevduat Yönetimi Md; Kaynak Yönetimi Md → Kurumsal ve Ticari Mevduat Yönetimi Md; Başkanlık adı Mevduat Yönetimi Başkanlığı."}]},{"g":"uygulama","ad":"Genel Müdürlük–Saha İletişiminin Artırılması","durum":"Faz 1 bitti","giris":"5 May 2026","hedef":"1 Tem 2026","sorumlu":"Kurumsal Gelişim ve Akademi Başkanlığı","amac":"Şubeler ile Genel Müdürlük birimleri arasındaki iletişimin izleme sistemleri, performans ölçümleri ve anket çalışmaları ile sağlıklı hale getirilmesi.","kapsam":"Çalışma üç fazda planlanmıştır: çağrı istatistikleri altyapısı ve haftalık bildirim (Birim Kokpit), çağrı sonu memnuniyet anketi altyapısı ve sonuçların birim performans sistemine kriter olarak yansıtılması. Çağrı cevaplama oranlarının Başkan ve GMY/GB bazında haftalık paylaşılması ve birimlere KPI tabanlı cevaplama hedefleri verilmesi de kapsam dahilindedir.","kazanim":"İzleme sistemi ve yönetici raporlama altyapısı kuruldu, birim performans kriteri oluşturuldu. Saha ve GM birimleri arasında etkili iletişim sağlanacak.","kararlar":[{"no":"Karar 6/4","tarih":"25 May 2026","metin":"Çağrı cevaplama oranlarının Başkan ve GMY/GB bazında haftalık paylaşılması; çağrı kalitesi anket altyapısının oluşturulması."},{"no":"Karar 3/1","tarih":"5 May 2026","metin":"İyileştirme alanlarından sorumlu birimlerin aksiyon planlarını oluşturması ve takvimin Dönüşüm Komitesi ile paylaşılması."}]},{"g":"tamam","ad":"Performans Sisteminin Sadeleştirilmesi","durum":"Tamamlandı","giris":"29 Nis 2026","hedef":"1 Tem 2026","sorumlu":"Performans Yönetimi Başkanlığı","amac":"Şube performans değerlendirmelerinde sadeleştirmeye gidilmesi ve performansa olumlu etkisi olan bir yapıya geçilmesi.","kapsam":"07.05.2026 tarihinde alınan 9 karar çerçevesinde Denge PK uygulamasının kaldırılması, mevduat maliyetinde segment bazlı KEP uygulamasına geçilmesi, Aksama/Takip koridorunun sadeleştirilmesi ve konkordato etkisinin azaltılması kapsam dahilindedir. Ayrıca Faiz Dışı Gelir kriterinin eklenmesi, 1 PK altı için kademeli prim çalışması ve FTF/kârlılık hesaplamasının gözden geçirilmesi planlanmaktadır.","kazanim":"Karmaşık yapı giderildi, Denge PK bileşeni kaldırıldı, yıldız kriterlerin negatif etkisi azaltıldı; aksama ve takip kriterleri yalnızca olumlu etkileyecek hale getirildi.","kararlar":[{"no":"Karar 4/1","tarih":"7 May 2026","metin":"Denge PK uygulamasının 2026 3. dönem itibarıyla kaldırılması."},{"no":"Karar 4/2","tarih":"7 May 2026","metin":"2026 3. performans dönemi itibarıyla mevduat maliyet hesaplamasında segment bazlı KEP uygulamasına geçilmesi."},{"no":"Karar 4/3","tarih":"7 May 2026","metin":"5 yıl ve öncesinde takibe aktarılan müşterilerin performans sisteminden arındırılarak Aksama/Takip koridor uygulamasının sadeleştirilmesi."},{"no":"Karar 4/4","tarih":"7 May 2026","metin":"Konkordato süreçlerinin performans üzerindeki olumsuz etkisinin azaltılması; ilgili ekiplerin KPI belirleyerek performans sisteminin sadeleştirilmesi."}]},{"g":"uygulama","ad":"Talimatların Yapay Zeka ile İşlenmesi","durum":"Faz 1 bitti","giris":"5 May 2026","hedef":"—","sorumlu":"Bankacılık Operasyonları Başkanlığı","amac":"Müşteri talimatlarının yapay zeka ile otomatik olarak işlem ekranına aktarılması.","kapsam":"Ticari müşterilerin mobil ve internet bankacılığı üzerinden ilettiği talimatların DYS'ye aktarılarak yapay zeka ile işlenmesi, \"Şubeye Talimat Gönder\" menüsü geliştirmeleri ve serbest talimat yazımının kısıtlanması kapsam dahilindedir. Ayrıca bireysel talimat süreçlerine ve Outlook üzerinden iş isteği oluşturulmasına yönelik geliştirmeler yer almaktadır.","kazanim":"Haberleşme, evrak ve arşiv süreci son bulacak; manuel veri girişleri sıfırlanarak işlem doğrudan operasyon çalışanının ekranında görünecek.","kararlar":[{"no":"Karar 6/5","tarih":"25 May 2026","metin":"AI Destekli Müşteri Talimatı projesinin önceliklendirilmesi için Proje Yönetimi ekibiyle görüşülmesi."},{"no":"Karar 3/1","tarih":"5 May 2026","metin":"İyileştirme alanlarından sorumlu birimlerin aksiyon planlarını oluşturması ve takvimin Dönüşüm Komitesi ile paylaşılması."}]},{"g":"tamam","ad":"VIP App","durum":"Tamamlandı","giris":"5 May 2026","hedef":"—","sorumlu":"Dijital Bankacılık ve Dağıtım Kanalları Başkanlığı","amac":"Banka yöneticilerinin Bankaya ait bilgilere mobil uygulama üzerinden erişebilmesi.","kapsam":"Ürün, kampanya, envanter, performans, personel ve proje bilgilerinin uygulamada sunulması, Aksiyon İzleme Sistemi (AİS) ile Ürünler sekmesinin eklenmesi ve takip/yakın izlemedeki müşterilere ilişkin Müşteri Föyü'nün uygulamaya alınması kapsam dahilindedir. Ayrıca mevzuat değişikliği bildirimlerinin ve Dijital Makam Onayı süreçlerinin VIP App üzerinden yapılması planlanmaktadır.","kazanim":"Yöneticiler finansal/finansal olmayan verilere anlık erişebilecek; ürün, kampanya, envanter, performans, personel ve proje bilgilerini görüntüleyip aksiyon izleyebilecek.","kararlar":[{"no":"Karar 24/3","tarih":"9 Eki 2026","metin":"Mevzuat değişikliklerine ilişkin bilgilendirmelerin VIP App üzerinden de yapılmasına yönelik çalışma yürütülmesi"},{"no":"Karar 10/5","tarih":"22 Haz 2026","metin":"Takip ve yakın izlemedeki ilk 50 müşteriyle yapılan görüşmelere VIP App içinde yer verilmesi."},{"no":"Karar 7/2","tarih":"1 Haz 2026","metin":"Yönetici App'in güncel durumunun Genel Müdürlük Makamına sunulması; tamamlanan kısımların kademeli olarak canlıya alınması."},{"no":"Karar 3/1","tarih":"5 May 2026","metin":"İyileştirme alanlarından sorumlu birimlerin aksiyon planlarını oluşturması ve takvimin Dönüşüm Komitesi ile paylaşılması."}]},{"g":"calisma","ad":"Müşteri Verimlilik Yönetimi","durum":"Çalışılıyor","giris":"1 Eyl 2026","hedef":"—","sorumlu":"Strateji ve Ürün Geliştirme Başkanlığı","amac":"Müşterilerin verimliliklerinin ortak ve güvenilir bir metodolojiyle ölçülmesi; müşteri bazında mevcut ve potansiyel değerin görünür hale getirilmesi ve elde edilen verilerin satış süreçlerinde uygulanabilir aksiyonlara dönüştürülmesi","kapsam":"Değer360 ile ürün ve kampanyaların hedef kitleyle eşleştirilmesi, portföye atanması, temas ve aktivasyonun izlenmesi ile taahhüt ve gelir/kârlılık takibinin tek döngüde yönetilmesi kapsam dahilindedir. Değer Pusulası ile de portföy göstergeleri ve önceliklendirilmiş aksiyonların sunulduğu Müşteri 360 ekranı ile taahhütlerin getiriye etkisinin izlendiği Karar Ekranı'nın oluşturulması planlanmaktadır.","kazanim":"Ürün–hedef kitle penetrasyonu, satış aksiyonu, dönüşüm ve finansal etkinin tek döngüde izlenmesiyle kaçırılan fırsatların azaltılması, ürün aktif kullanımının ve gelirin artırılması hedeflenmektedir. Mevcut durumda %58 olan atamalarda zaman aşımı oranının düşürülmesi ve %5 olan olumlu sonuçlanan atama oranının artırılması beklenmektedir.","alt":["Değer360 — Akıllı Satış ve Gelir Yönetimi","Değer Pusulası"],"kararlar":[{"no":"Karar 23/1","tarih":"1 Eki 2026","metin":"Müşteri Verimlilik Yönetimi başlığı altında izlenen Değer Pusulası: Müşteri 360 ve Karar Ekranları projesinin Komite gündemine dahil edilmesine, ilgili paydaşların katılımıyla çalışma grubu oluşturularak kapsamın netleştirilmesine ve projenin hayata geçirilmesine karar verilmiştir."},{"no":"Karar 21/1","tarih":"11 Eyl 2026","metin":"Değer360 modeline ilişkin çalışmaların başlatılması; başkanlık ve paydaşların belirlenerek çalışma grubu kurulması; detayların netleştirilip modelin seçili stratejik ürünlerle devreye alınması."},{"no":"Karar 20/1","tarih":"1 Eyl 2026","metin":"Strateji, Ürün Geliştirme ve Kurumsal Gelişim GB'nin strateji, ürün, süreç ve dönüşüm başlıklarında danışmanlık firmalarıyla görüşme gerçekleştirmesi."},{"no":"Karar 20/2","tarih":"1 Eyl 2026","metin":"Stratejiden dönüşüme, dönüşümden değere iş planının şubelerle görüşülerek yürütülmesi; görüş/öneri alma mekanizmalarıyla dönüşüm programının saha odaklı beslenmesi."}]},{"g":"uygulama","ad":"Bireysel Segment Yönetimi","durum":"Faz 1 bitti","giris":"1 Eyl 2026","hedef":"—","sorumlu":"Strateji, Ürün Geliştirme ve Kurumsal Gelişim, KOBİ, Perakende ve Bireysel Bankacılık","amac":"Bireysel müşterileri doğru konumlandırarak, operasyonun uygun ölçüde merkezileştiği ve portföy yöneticisinin müşteri değeri yaratmaya odaklandığı yeni bireysel segment yönetim modelinin tasarlanması","kapsam":"Bireysel portföy yöneticisi ihtiyacının diğer bankalarla karşılaştırmalı olarak tespiti, özel bankacılık müşteri segmentasyonu ve dijital müşteri segmentasyonuna dayalı dijital portföy yönetimi kapsam dahilindedir. Bu çerçevede İstanbul'da 10 şube ve 10 portföy yöneticisiyle dijital müşterilere planlı ve veri odaklı temas sağlanmasına yönelik pilot uygulama planlanmaktadır.","kazanim":"Portföy yöneticilerinin daha geniş bir müşteri havuzuna veri odaklı hizmet vermesiyle portföy verimliliğinin artırılması hedeflenmektedir. Pilot uygulamada 90 günlük izleme süresince müşteri aktifliği ve cüzdan payı kazanımlarının ölçülmesi öngörülmektedir.","kararlar":[{"no":"Karar 25/2","tarih":"15 Eki 2026","metin":"Bireysel Segment Yönetimi konusu kapsamında bilgilendirilmesi yapılan yeni portföy yönetim modelinin pilot çalışma ve/veya yaygınlaşma sürecinin gözlemlenerek sonuçlarının Dönüşüm Komitesi'ne sunulması"},{"no":"Karar 20/1","tarih":"1 Eyl 2026","metin":"Strateji, Ürün Geliştirme ve Kurumsal Gelişim GB'nin strateji, ürün, süreç ve dönüşüm başlıklarında danışmanlık firmalarıyla görüşme gerçekleştirmesi."},{"no":"Karar 20/2","tarih":"1 Eyl 2026","metin":"Stratejiden dönüşüme, dönüşümden değere iş planının şubelerle görüşülerek yürütülmesi; görüş/öneri alma mekanizmalarıyla dönüşüm programının saha odaklı beslenmesi."},{"no":"Karar 20/3","tarih":"1 Eyl 2026","metin":"Bireysel Portföy Yöneticilerinin daha geniş kapsamlı bir müşteri havuzuna hizmet verdiği yapıya geçilmesi."}]},{"g":"calisma","ad":"Gayrinakdi Krediler","durum":"Çalışılıyor","giris":"1 Eyl 2026","hedef":"—","sorumlu":"Strateji, Ürün Geliştirme ve Kurumsal Gelişim, Operasyonel İşlemler","amac":"Gayrinakdi kredilerin tüm süreçlerinin merkezileştirilmesi","kapsam":"Gayrinakdi kredi süreçlerinin uçtan uca ele alınarak merkezi bir işletim modeline taşınması kapsam dahilindedir. Çalışmanın, \"stratejiden dönüşüme, dönüşümden değere\" iş planı çerçevesinde şubelerin görüş ve önerileri alınarak yürütülmesi planlanmaktadır.","kazanim":"Süreçlerin merkezileştirilmesiyle gayrinakdi kredi işlemlerinde standart, hızlı ve kontrollü bir işleyiş sağlanması ve şube operasyonel yükünün azaltılması hedeflenmektedir.","kararlar":[{"no":"Karar 20/1","tarih":"1 Eyl 2026","metin":"Strateji, Ürün Geliştirme ve Kurumsal Gelişim GB'nin strateji, ürün, süreç ve dönüşüm başlıklarında danışmanlık firmalarıyla görüşme gerçekleştirmesi."},{"no":"Karar 20/2","tarih":"1 Eyl 2026","metin":"Stratejiden dönüşüme, dönüşümden değere iş planının şubelerle görüşülerek yürütülmesi; görüş/öneri alma mekanizmalarıyla dönüşüm programının saha odaklı beslenmesi."}]},{"g":"calisma","ad":"Veri Analitiği","durum":"Çalışılıyor","giris":"1 Eyl 2026","hedef":"—","sorumlu":"Strateji, Ürün Geliştirme ve Kurumsal Gelişim, Dijital Bankacılık, Ödeme Sistemleri ve Kurumsal İletişim","amac":"Ürün ve müşterilerin verilerinin analiz edilerek dönüşüm fırsatı üretme kabiliyeti ve dönüşüm sonuçlarının doğru ölçülmesi","kapsam":"Ürün Analitiği ve Müşteri Analitiği alt başlıklarında dönüşüm fırsatı üretmeye ve sonuçların ölçülmesine yönelik analitik çalışmaların yapılması kapsam dahilindedir. Çalışmanın Müşteri Verimlilik Yönetimi (Değer360) ile ilişkili olarak yürütülmesi planlanmaktadır.","kazanim":"Dönüşüm projelerinin veriye dayalı olarak önceliklendirilmesi ve sağlanan kazanımların ölçülebilir şekilde raporlanması hedeflenmektedir.","kararlar":[{"no":"Karar 20/1","tarih":"1 Eyl 2026","metin":"Strateji, Ürün Geliştirme ve Kurumsal Gelişim GB'nin strateji, ürün, süreç ve dönüşüm başlıklarında danışmanlık firmalarıyla görüşme gerçekleştirmesi."},{"no":"Karar 20/2","tarih":"1 Eyl 2026","metin":"Stratejiden dönüşüme, dönüşümden değere iş planının şubelerle görüşülerek yürütülmesi; görüş/öneri alma mekanizmalarıyla dönüşüm programının saha odaklı beslenmesi."}]},{"g":"calisma","ad":"Müşteri Edinimi & Yönetimi","durum":"Çalışılıyor","giris":"1 Eyl 2026","hedef":"—","sorumlu":"Güvenli Bankacılık Başkanlığı","amac":"Statik ve beyana dayalı müşteri profilinden; doğrulanmış veri, davranış, geçmiş ve risk sinyallerini birlikte değerlendiren dinamik ve 360° müşteri yönetimine geçiş","kapsam":"Müşteri edinim aşamasında beyan edilen bilgilerin doğrulanmış veri kaynaklarıyla desteklenmesi ve müşteri profilinin davranış, geçmiş ve risk sinyalleriyle sürekli güncellenmesine yönelik yapının tasarlanması kapsam dahilindedir.","kazanim":"Müşteri risk değerlendirmesinin güçlendirilmesi ve müşteri yönetiminde daha isabetli kararlar alınması hedeflenmektedir.","kararlar":[{"no":"Karar 20/1","tarih":"1 Eyl 2026","metin":"Strateji, Ürün Geliştirme ve Kurumsal Gelişim GB'nin strateji, ürün, süreç ve dönüşüm başlıklarında danışmanlık firmalarıyla görüşme gerçekleştirmesi."},{"no":"Karar 20/2","tarih":"1 Eyl 2026","metin":"Stratejiden dönüşüme, dönüşümden değere iş planının şubelerle görüşülerek yürütülmesi; görüş/öneri alma mekanizmalarıyla dönüşüm programının saha odaklı beslenmesi."}]},{"g":"calisma","ad":"Basel IV Uyum Dönüşümü","durum":"Çalışılıyor","giris":"1 Eki 2026","hedef":"30 Eyl 2027","sorumlu":"İç Sistemler","amac":"Basel IV’e uyum kapsamında risk ağırlıklı varlıklar ve sermaye ihtiyacındaki değişim ile kullanılmayan limitlerin sermaye tüketimine etkisi gibi Bankamıza yönelik olası etkiler dikkate alınarak; Basel IV’ün portföy, teminat vel imitlere etkisine yönelik aksiyonların hayata geçirilmesi","kapsam":"Risk Yönetimi Başkanlığı'nın yol haritasını çıkararak Aktif Pasif Komitesi'nde sunması, iş birimlerinin portföy, teminat ve limit aksiyonlarına ilişkin hazırlıklarını yapması ve yasal raporlamaya hazırlık kapsam dahilindedir. İş birimlerinin hazırlık durumlarının düzenli olarak raporlanması ve tam geçiş sonrasında etkinin izlenmesi planlanmaktadır.","kazanim":"Portföy, teminat ve limit yönetimiyle Basel IV kaynaklı sermaye ihtiyacı artışının sınırlandırılması ve kullanılmayan limitlerin sermaye tüketiminin azaltılması hedeflenmektedir. Ayrıca yasal raporlama yükümlülüklerine zamanında uyum sağlanması beklenmektedir.","kararlar":[{"no":"Karar 23/3","tarih":"1 Eki 2026","metin":"Basel IV’e ilişkin Bankamız yol haritasının Aktif Pasif Komitesi’nde sunulması ve konunun DönüşümKomitesi gündemine alınarak takip edilmesi talimatı verilmiştir."}]},{"g":"calisma","ad":"İştirak Sinerji Programı","durum":"Çalışılıyor","giris":"1 Eki 2026","hedef":"—","sorumlu":"Finansal Yönetim ve Ortaklıklar","amac":"2025 yılında konsolide kârın %13,3’ünün iştiraklerden sağlandığı (seçili 9 banka ortalaması %30,5) dikkate alınarak; iştiraklerin tek tek büyümesinden Banka ile birlikte değer üreten bir grup modeline geçişi hedefleyen, ortak müşteri yönetimi, ortak altyapı, entegre çözüm ve satış ile ortak performans yönetimi başlıklarından oluşan program","kapsam":"Program; ortak müşteri yönetimi, ortak altyapı, entegre çözüm ve satış ile ortak performans yönetimi başlıklarından oluşmaktadır. İştiraklerin mevcut durumunun çıkarılması, iştirak bazında ve finansal grup olarak strateji oluşturulması ve şirketlerin birlikte nasıl büyüyeceğine dair planlama yapılması kapsam dahilindedir.","kazanim":"İştiraklerin konsolide kâra katkısının artırılması ve Banka ile iştirakler arasında ortak müşteri, ortak altyapı ve entegre satış sinerjilerinin oluşturulması hedeflenmektedir.","kararlar":[{"no":"Karar 23/6","tarih":"1 Eki 2026","metin":"İştirak Sinerji Programı’nın Dönüşüm Komitesi kapsamında ele alınarak takip edilmesi talimatı verilmiştir."}]},{"g":"calisma","ad":"Dijital Satış Dönüşümü","durum":"Çalışılıyor","giris":"1 Eki 2026","hedef":"—","sorumlu":"Sorumlu başkanlık girilmedi","amac":"Şube dışı kanal kullanımının %98, dijital müşteri sayısının 16,5 milyon seviyesinde olduğu dikkate alınarak; dijital kanallarda doğru müşteriye, doğru anda, doğru ürünün konumlandırılması ve iş birimlerince dijital işlemlerle bağlantılı ürün ve hizmetlerin sunulmasına yönelik çalışmaların hayata geçirilmesi","kapsam":"İş birimlerince, müşterilerin dijital kanallarda gerçekleştirdikleri işlemlerin ardından bağlantılı olabilecek ürün ve hizmetlerin belirlenmesi ve sunulmasına yönelik kullanım senaryolarının oluşturulması kapsam dahilindedir. Bu çerçevede satış fırsatları ve kullanım senaryolarının Banka genelinden toplanmasına yönelik çalışma başlatılmıştır.","kazanim":"Dijital kanallardaki yüksek işlem hacminin satış fırsatına dönüştürülmesiyle dijital satışın ve müşteri başına ürün sayısının artırılması hedeflenmektedir.","kararlar":[{"no":"Karar 23/7","tarih":"1 Eki 2026","metin":"Dijital Satış Dönüşümü konusunun Komite kapsamında ele alınarak takip edilmesi talimatı verilmiştir."}]},{"g":"calisma","ad":"API ve Gömülü Finans","durum":"Çalışılıyor","giris":"1 Eki 2026","hedef":"—","sorumlu":"Sorumlu başkanlık girilmedi","amac":"API’lerin Bankanın platformlarda ve ekosistemlerde yer almasının ön koşulu olduğu dikkate alınarak; Banka ürün ve hizmetlerinin müşterilerin iş platformlarına taşınması amacıyla API, entegratör, platform ve ekosistem aşamalarında genişlemenin sağlanması, API kataloğunun güncellenmesi ve diğer bankalarla karşılaştırmalı boşluk analizi yapılması.","kapsam":"Tüm iş kollarının \"ne API olabilir?\" sorusuyla kullanım senaryolarını belirlemesi, API kataloğunun güncellenmesi ve diğer bankaların API kataloglarıyla karşılaştırmalı boşluk analizi yapılması kapsam dahilindedir. Ayrıca Banka genelinde API farkındalığının oluşturulması planlanmaktadır.","kazanim":"Kampüs ve VİNOV örneklerinde görüldüğü gibi API altyapısının yeni iş modellerini mümkün kılmasıyla Banka ürünlerinin müşteri platformlarında gömülü olarak sunulması hedeflenmektedir. Böylece ekosistemler üzerinden yeni müşteri ve işlem hacmi kazanılması beklenmektedir.","kararlar":[{"no":"Karar 23/8","tarih":"1 Eki 2026","metin":"API ve Gömülü Finans konusu Komite kapsamında ele alınarak takip edilmesi talimatı verilmiştir."}]},{"g":"calisma","ad":"Türkiye'ye Değer Platformu","durum":"Çalışılıyor","giris":"15 Eki 2026","hedef":"—","sorumlu":"Ürün Geliştirme, Nakit Yönetimi ve Dış Ticaret Pazarlama Başkanlığı","amac":"Bankamızın finansman gücünün Türkiye'nin ekonomik, sosyal ve çevresel kalkınma öncelikleriyle buluşturulması.","kapsam":"Kadına, Girişimciye ve İstihdama Değer alanlarında 13 ürün/çözümün platformda sunulması, 6 soruluk \"Değer Yolculuğu\" ihtiyaç sihirbazı ve SMS doğrulamalı başvuru akışının devreye alınması kapsam dahilindedir. Başvuruların seçilen şubeye görev olarak aktarılması ve ilerleyen aşamada Dönüşüme, İhracata, Üretime, Geleceğe ve Yeşil Değer temalarının eklenmesi planlanmaktadır.","kazanim":"Kalkınma odaklı finansal çözümlerin tek platformda ihtiyaçlara göre sunulması ve başvuruların doğrudan şubelere aktarılmasıyla müşteri kazanımının ve finansmana erişimin artırılması"},{"g":"calisma","ad":"Kurumsal Web ve İçerik Yönetimi Dönüşümü","durum":"Çalışılıyor","giris":"23 Eki 2026","hedef":"—","sorumlu":"Bilgi Teknolojileri, Dijital Bankacılık, Ödeme Sistemleri ve Kurumsal İletişim","amac":"Bankamız ve iştiraklerine ait internet sitelerinin tek platform üzerinden yönetilmesi; içerik hazırlama ve onay süreçleri ile site ve sayfa bazında yetkilendirmenin banka içinde geliştirilen VCMS üzerinden yürütülmesi","kapsam":"Dış firmalarca ayrı ayrı yönetilen sitelerin Çoklu Site Yönetim Platformu'na (VCMS) taşınması, içerik hazırlama ve onay akışları, site/sayfa bazında yetkilendirme ve otomatik test altyapısının kurulması kapsam dahilindedir.","kazanim":"Dış firmaya bağımlılığın azalması; maliyetin site sayısıyla katlanmaması; içeriğin iş birimince aynı gün yayına alınması; kod ve verinin banka içinde kalması","kararlar":[{"no":"Karar 26/1","tarih":"23 Eki 2026","metin":"Sunumu gerçekleştirilen “Ticari Kredi Süreçlerinin İyileştirilmesi” ve “Bilgi Teknolojileri Ekipleri Tarafından Yürütülen Projeler” başlıklarının, tüm Genel Müdür Yardımcıları ve Grup Başkanlarının katılımıyla gerçekleştirilecek bir Dönüşüm Komitesi toplantısında yeniden gündeme alınarak ilgili çalışmalar hakkında kapsamlı bilgilendirme yapılmasına karar verilmiştir."}]},{"g":"calisma","ad":"Yapay Zeka Destekli Asistan ve Etkileşim Dönüşümü","durum":"Çalışılıyor","giris":"23 Eki 2026","hedef":"—","sorumlu":"Bilgi Teknolojileri, Dijital Bankacılık, Ödeme Sistemleri ve Kurumsal İletişim","amac":"Bankamızda farklı kanallarda kullanılan chatbotların ortak bir platformda birleştirilerek yapay zekâ destekli asistanlara dönüştürülmesi","kapsam":"Dört fazlı yaygınlaştırma planı kapsamında intranet üzerinde IT destek botu pilotu, diğer 11 iç botun platforma taşınması, VİBİ ve web kanalları ile IVR entegrasyonu yer almaktadır. Platformun sunduğu yeteneklerin mevcut chatbotlara entegre edilmesi kapsam dahilindedir.","kazanim":"Onaylı, güncel ve kaynaklı yanıt; bilgi içeriğini iş biriminin yazılım geliştirme beklemeden yönetmesi; sohbetten doğrudan talep başlatılması","kararlar":[{"no":"Karar 26/1","tarih":"23 Eki 2026","metin":"Sunumu gerçekleştirilen “Ticari Kredi Süreçlerinin İyileştirilmesi” ve “Bilgi Teknolojileri Ekipleri Tarafından Yürütülen Projeler” başlıklarının, tüm Genel Müdür Yardımcıları ve Grup Başkanlarının katılımıyla gerçekleştirilecek bir Dönüşüm Komitesi toplantısında yeniden gündeme alınarak ilgili çalışmalar hakkında kapsamlı bilgilendirme yapılmasına karar verilmiştir."}]}],"schedule":[{"hafta":"Kasım 4. Hafta","konular":[{"ad":"Yapay Zeka Firma Tanıtım Formu","birim":"Değerlendirme ve Derecelendirme Başkanlığı","yonetici":[["Genel Müdür Yardımcısı","Arif Çokçetin"]]},{"ad":"Doküman Yönetim Sisteminin İyileştirilmesi","birim":"Mevduat ve Yatırım Operasyonları Başkanlığı","yonetici":[["Grup Başkanı","Kürşat Hakan Bütün"]]},{"ad":"Merkezi Veri Altyapısı ve Otomasyon","birim":"Bütçe ve Raporlama Başkanlığı","yonetici":[["Genel Müdür Yardımcısı","Şuayyip İlbilgi"]]}]},{"hafta":"Aralık 1. Hafta","konular":[{"ad":"Farklı Dekont Şablonlarının Tek Şablona Çevrilmesi (Dekont Dönüşümü)","birim":"Bankacılık Operasyonları Başkanlığı","yonetici":[["Grup Başkanı","Kürşat Hakan Bütün"]]},{"ad":"Takip Portföyünün Verimli ve Etkin Kullanılması","birim":"Kredi Risk Tasfiye Başkanlığı 1","yonetici":[["Grup Başkanı","Ali Karamık"]]},{"ad":"İştirak Sinerji Programı","birim":"İştirak ve Bağlı Ortaklıklar Koordinasyon Başkanlığı","yonetici":[["Genel Müdür Yardımcısı","Şuayyip İlbilgi"]]},{"ad":"Veri Kalitesi","birim":"Güvenli Bankacılık Başkanlığı · Dijital Bankacılık ve Dağıtım Kanalları Başkanlığı · Mevduat ve Yatırım Operasyonları Başkanlığı","yonetici":[["Genel Müdür Yardımcısı","Ali Kırbaş"],["Grup Başkanı","Kürşat Hakan Bütün"]]}]},{"hafta":"Aralık 2. Hafta","konular":[{"ad":"KPI Performans Yönetimi","birim":"Performans Yönetimi Başkanlığı","yonetici":[["Grup Başkanı","Ömer Faruk Başer"]]},{"ad":"Yurt Dışı İştirakler Ana Bankacılık Uygulaması","birim":"Dijital Kanallar ve Ödeme Sistemleri Uygulama Geliştirme Başkanlığı","yonetici":[["Genel Müdür Yardımcısı","Mustafa Koç"]]},{"ad":"Kripto Hizmetleri","birim":"Mevduat ve Yatırım Operasyonları Başkanlığı · Dijital Bankacılık ve Dağıtım Kanalları Başkanlığı","yonetici":[["Genel Müdür Yardımcısı","Ali Kırbaş"],["Grup Başkanı","Kürşat Hakan Bütün"]]}]}],"decisions":[{"tarih":"23 Eki","no":"Karar 26/1","toplanti":"26. Dönüşüm Komitesi Toplantısı","durum":"Açık","metin":"Sunumu gerçekleştirilen “Ticari Kredi Süreçlerinin İyileştirilmesi” ve “Bilgi Teknolojileri Ekipleri Tarafından Yürütülen Projeler” başlıklarının, tüm Genel Müdür Yardımcıları ve Grup Başkanlarının katılımıyla gerçekleştirilecek bir Dönüşüm Komitesi toplantısında yeniden gündeme alınarak ilgili çalışmalar hakkında kapsamlı bilgilendirme yapılmasına karar verilmiştir.","sorumlu":"Dönüşüm Yönetimi Müdürlüğü"},{"tarih":"15 Eki","no":"Karar 25/2","toplanti":"25. Dönüşüm Komitesi Toplantısı","durum":"Açık","metin":"Bireysel Segment Yönetimi konusu kapsamında bilgilendirilmesi yapılan yeni portföy yönetim modelinin pilot çalışma ve/veya yaygınlaşma sürecinin gözlemlenerek sonuçlarının Dönüşüm Komitesi'ne sunulması","sorumlu":"KOBİ, Perakende ve Bireysel Bankacılık Grup Başkanlığı"},{"tarih":"15 Eki","no":"Karar 25/1","toplanti":"25. Dönüşüm Komitesi Toplantısı","durum":"Açık","metin":"Takip Portföyünün Verimli ve Etkin Yönetilmesi konusu kapsamında yapılan analiz çalışmasının düzenli olarak gerçekleştirilmesi, alınan aksiyonların sonuçlarının gözlemlenmesi ve belirli periyotlarla Dönüşüm Komitesi'ne sunulması","sorumlu":"Kredi İzleme, Firma Analiz, Kredi Politikaları Genel Müdür Yardımcılığı, Hukuk İşleri ve Yasal Takip Grup Başkanlığı, Kurumsal ve Ticari Bankacılık Genel Müdür Yardımcılığı, KOBİ, Perakende ve Bireysel Bankacılık Grup Başkanlığı, Kurumsal ve Ticari Krediler Tahsis Yönetimi Genel Müdür Yardımcılığı, KOBİ, Perakende ve Bireysel Krediler Tahsis Yönetimi Grup Başkanlığı"},{"tarih":"9 Eki","no":"Karar 24/9","toplanti":"24. Dönüşüm Komitesi Toplantısı","durum":"Açık","metin":"Sosyal medya analiz uygulamasının Bankamızın iç kaynaklarıyla geliştirilmesi imkânının değerlendirilmesi ve paylaşımlara yapay zeka destekli cevap oluşturulmasına yönelik çalışma yapılması","sorumlu":"Bilgi Teknolojileri Genel Müdür Yardımcılığı, Dijital Bankacılık, Ödeme Sistemleri ve Kurumsal İletişim Genel Müdür Yardımcılığı"},{"tarih":"9 Eki","no":"Karar 24/8","toplanti":"24. Dönüşüm Komitesi Toplantısı","durum":"Açık","metin":"Hukuk görüşlerine ilişkin sıkça sorulan soruları yanıtlayacak yapay zeka asistanının Bizimyerimiz ve Bilio portallerinde sunulmasına yönelik çalışma yapılması","sorumlu":"Hukuk İşleri ve Yasal Takip Grup Başkanlığı, Dijital Bankacılık, Ödeme Sistemleri ve Kurumsal İletişim Genel Müdür Yardımcılığı"},{"tarih":"9 Eki","no":"Karar 24/7","toplanti":"24. Dönüşüm Komitesi Toplantısı","durum":"Açık","metin":"Teminat mektuplarına ilişkin yapay zeka destekli hukuk görüşü sürecinde metin değişikliklerinin vurgulanarak gösterilmesine yönelik çalışma yapılması","sorumlu":"Hukuk İşleri ve Yasal Takip Grup Başkanlığı"},{"tarih":"9 Eki","no":"Karar 24/6","toplanti":"24. Dönüşüm Komitesi Toplantısı","durum":"Açık","metin":"Teminat mektuplarında aynı muhatap ve metin için geçmiş hukuk görüşlerinin giriş aşamasında tespit edilmesi, Şubenin bilgilendirilmesi veya mevcut görüşün yeniden kullanılması alternatiflerinin değerlendirilmesi","sorumlu":"Hukuk İşleri ve Yasal Takip Grup Başkanlığı"},{"tarih":"9 Eki","no":"Karar 24/5","toplanti":"24. Dönüşüm Komitesi Toplantısı","durum":"Açık","metin":"Tespit edilen mevzuat değişikliklerinin Kurumsal Duyuru Sistemi'nde de yayımlanmasına yönelik çalışma yapılması","sorumlu":"İç Sistemler Grup Başkanlığı"},{"tarih":"9 Eki","no":"Karar 24/4","toplanti":"24. Dönüşüm Komitesi Toplantısı","durum":"Açık","metin":"Mevzuat değişikliklerinin Bankamızın iç mevzuatına, uygulamalarına ve ürünlerine etkilerinin değerlendirilmesini destekleyecek yapay zeka asistanı için proje talebi oluşturulması","sorumlu":"İç Sistemler Grup Başkanlığı, Bilgi Teknolojileri Genel Müdür Yardımcılığı"},{"tarih":"9 Eki","no":"Karar 24/3","toplanti":"24. Dönüşüm Komitesi Toplantısı","durum":"Açık","metin":"Mevzuat değişikliklerine ilişkin bilgilendirmelerin VIP App üzerinden de yapılmasına yönelik çalışma yürütülmesi","sorumlu":"İç Sistemler Grup Başkanlığı, Bilgi Teknolojileri Genel Müdür Yardımcılığı, Strateji, Ürün Geliştirme ve Kurumsal Gelişim Grup Başkanlığı"},{"tarih":"9 Eki","no":"Karar 24/2","toplanti":"24. Dönüşüm Komitesi Toplantısı","durum":"Açık","metin":"Mevzuat değişikliklerinden kaynaklanan aksiyonların takibine ilişkin İç Sistemler Grup Başkanlığınca yürütülen çalışmalar sonucunda öngörülen organizasyonel değişikliklerin Dönüşüm Komitesi'ne sunulması","sorumlu":"İç Sistemler Grup Başkanlığı"},{"tarih":"9 Eki","no":"Karar 24/11","toplanti":"24. Dönüşüm Komitesi Toplantısı","durum":"Açık","metin":"Bankamız botlarına yönelik geliştirme çalışmaları hakkında Dönüşüm Komitesi'ne bilgi verilmesi","sorumlu":"Bilgi Teknolojileri Genel Müdür Yardımcılığı"}],"meta":{"baslik":"Dönüşüm Takip Sistemi","alt":"Dönüşüm Komitesi · özet görünüm","guncellemeEt":"Güncelleme","guncelleme":"16 Kasım 2026","konularBaslik":"Dönüşüm Komitesi konuları","toplam":"Toplam","komite":{"et":"Sıradaki komite","tarih":"30 Kasım","gun":"Pazartesi","ad":"29. Dönüşüm Komitesi Toplantısı","gundem":"Gündem henüz paylaşılmadı.","iso":"2026-11-30"},"takvim":["Sunum takvimi","Planlanan konu sunumları"],"konular":["Dönüşüm konuları","Ayrıntı için dokunun"],"kararlar":["Son komite kararları","89 karar"],"footer":["VakıfBank · Kurumsal Gelişim Başkanlığı · Dönüşüm Yönetimi Müdürlüğü","Bu sayfa 16 Kasım 2026 tarihli verinin sabit kopyasıdır."]}}</script>
+<script type="module">
+import * as THREE from 'three';
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
+
+/* ============================================================
+   VERİ
+   ============================================================ */
+const DATA = JSON.parse(document.getElementById('data').textContent);
+const T = DATA.topics, D = DATA.decisions, S = DATA.schedule, META = DATA.meta;
+
+const ST = {
+  calisma:  { label: 'Çalışılıyor', hex: '#F2B544' },
+  uygulama: { label: 'Uygulamada',  hex: '#3CC8DC' },
+  tamam:    { label: 'Tamamlandı',  hex: '#5FE0A2' },
+};
+const ORDER = ['calisma', 'uygulama', 'tamam'];
+const COUNT = { all: T.length };
+ORDER.forEach(k => COUNT[k] = T.filter(t => t.g === k).length);
+
+const C = {
+  bg: '#050B18', txt: '#E6ECF5', sub: '#B3C0D6', mut: '#7F90AE', gold: '#F2B544',
+  line: 'rgba(130,160,210,0.20)', card: 'rgba(20,36,64,0.70)', panel: 'rgba(9,18,36,0.96)',
+};
+
+// karar no -> konu indeksleri, konu adı -> indeks
+const topicsByDec = {};
+T.forEach((t, i) => (t.kararlar || []).forEach(k => { (topicsByDec[k.no] ||= []); if (!topicsByDec[k.no].includes(i)) topicsByDec[k.no].push(i); }));
+const decIdx = {}; D.forEach((d, i) => decIdx[d.no] = i);
+const topicByName = {}; T.forEach((t, i) => topicByName[t.ad] = i);
+
+const AY = { Oca: 0, 'Şub': 1, Mar: 2, Nis: 3, May: 4, Haz: 5, Tem: 6, 'Ağu': 7, Eyl: 8, Eki: 9, Kas: 10, Ara: 11 };
+const AY_AD = ['Oca', 'Şub', 'Mar', 'Nis', 'May', 'Haz', 'Tem', 'Ağu', 'Eyl', 'Eki', 'Kas', 'Ara'];
+function mo(s) { // 1 Nisan 2026'dan itibaren ay cinsinden
+  const m = /(\d+)\s+(\S+)\s+(\d{4})/.exec(s || ''); if (!m || !(m[2] in AY)) return null;
+  return (+m[3] - 2026) * 12 + AY[m[2]] - 3 + (+m[1] - 1) / 31;
+}
+const SNAP = mo('16 Kas 2026');
+
+/* ============================================================
+   RENDERER / SAHNE
+   ============================================================ */
+const DPR = Math.min(window.devicePixelRatio || 1, 2);
+let W = innerWidth, H = innerHeight, MOBILE = W < 760;
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
+renderer.setPixelRatio(DPR);
+renderer.setSize(W, H);
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.domElement.setAttribute('aria-label', 'Dönüşüm Takip Sistemi — etkileşimli 3B dönüşüm portföyü');
+renderer.domElement.tabIndex = 0;
+document.body.appendChild(renderer.domElement);
+const MAX_ANISO = renderer.capabilities.getMaxAnisotropy();
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(C.bg);
+scene.fog = new THREE.FogExp2(0x050b18, 0.0085);
+const camera = new THREE.PerspectiveCamera(45, W / H, 0.1, 1400);
+camera.position.set(0, 10, 150);
+
+const composer = new EffectComposer(renderer);
+composer.addPass(new RenderPass(scene, camera));
+const bloom = new UnrealBloomPass(new THREE.Vector2(W / 2, H / 2), 0.85, 0.55, 0.86);
+composer.addPass(bloom);
+composer.addPass(new OutputPass());
+
+const hud = new THREE.Scene();
+const hudCam = new THREE.OrthographicCamera(0, W, H, 0, -100, 100);
+
+/* ============================================================
+   METİN / TUVAL YARDIMCILARI
+   ============================================================ */
+const FAM = 'Inter, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif';
+const F = (s, w = 500) => `${w} ${s}px ${FAM}`;
+const mctx = document.createElement('canvas').getContext('2d');
+
+function alpha(hex, a) {
+  if (hex.startsWith('rgba')) return hex;
+  const n = parseInt(hex.slice(1), 16);
+  return `rgba(${n >> 16 & 255},${n >> 8 & 255},${n & 255},${a})`;
+}
+function rr(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  if (ctx.roundRect) { ctx.roundRect(x, y, w, h, r); return; }
+  const q = Array.isArray(r) ? r[0] : r;
+  ctx.moveTo(x + q, y); ctx.arcTo(x + w, y, x + w, y + h, q); ctx.arcTo(x + w, y + h, x, y + h, q);
+  ctx.arcTo(x, y + h, x, y, q); ctx.arcTo(x, y, x + w, y, q); ctx.closePath();
+}
+function setLS(ctx, v) { if ('letterSpacing' in ctx) ctx.letterSpacing = (v || 0) + 'px'; }
+function wrap(ctx, text, maxW) {
+  const out = [];
+  for (const para of String(text).split('\n')) {
+    const words = para.split(/\s+/).filter(Boolean);
+    let line = '';
+    for (const w of words) {
+      const test = line ? line + ' ' + w : w;
+      if (line && ctx.measureText(test).width > maxW) { out.push(line); line = w; } else line = test;
+    }
+    out.push(line);
+  }
+  return out;
+}
+
+/* Basit belge düzeni: öğeleri (metin, hap, kutu, sütun…) ölçüp çizim komutlarına çevirir */
+function lay(items, x, y, w, ctx = mctx) {
+  const ops = [], hits = [];
+  for (const it of items) {
+    if (!it) continue;
+    y += it.mt || 0;
+    const y0 = y;
+    if (it.t === 'text') {
+      ctx.font = F(it.size, it.weight || 500); setLS(ctx, it.ls);
+      const ind = it.indent || 0, mw = w - ind;
+      const txt = it.upper ? String(it.text).toLocaleUpperCase('tr-TR') : String(it.text);
+      let lines = it.nowrap ? [txt] : wrap(ctx, txt, mw);
+      if (it.maxLines && lines.length > it.maxLines) { lines = lines.slice(0, it.maxLines); lines[lines.length - 1] += '…'; }
+      lines = lines.map(l => { if (ctx.measureText(l).width <= mw) return l; let s = l; while (s && ctx.measureText(s + '…').width > mw) s = s.slice(0, -1); return s.trimEnd() + '…'; });
+      const lh = it.size * (it.lh || 1.42);
+      for (const l of lines) {
+        const ax = it.align === 'center' ? x + ind + mw / 2 : it.align === 'right' ? x + w : x + ind;
+        ops.push({ k: 't', s: l, x: ax, y: y + lh / 2, f: ctx.font, c: it.color || C.txt, a: it.align || 'left', ls: it.ls || 0, sh: it.shadow });
+        y += lh;
+      }
+      setLS(ctx, 0);
+    } else if (it.t === 'pill') {
+      const sz = it.size || 12; ctx.font = F(sz, 700);
+      const tw = ctx.measureText(it.text).width, h = sz + 13, pw = tw + (it.dot ? 36 : 24);
+      const px = it.align === 'right' ? x + w - pw : it.align === 'center' ? x + (w - pw) / 2 : x;
+      ops.push({ k: 'pill', x: px, y, w: pw, h, c: it.color, s: it.text, f: ctx.font, dot: it.dot, fill: it.fill });
+      if (it.action) hits.push({ x: px, y, w: pw, h, action: it.action });
+      y += h;
+    } else if (it.t === 'rule') {
+      ops.push({ k: 'r', x, y, w, h: 1, c: it.color || C.line }); y += 1;
+    } else if (it.t === 'space') {
+      y += it.h;
+    } else if (it.t === 'box') {
+      const p = it.pad ?? 16, ac = it.accent ? 6 : 0;
+      const op = { k: 'box', x, y, w, h: 0, bg: it.bg || C.card, b: it.border || C.line, r: it.r ?? 12, accent: it.accent, act: it.action };
+      ops.push(op);
+      const r = lay(it.items, x + p + ac, y + p, w - 2 * p - ac, ctx);
+      op.h = Math.max(it.minH || 0, r.y - y + p);
+      ops.push(...r.ops); hits.push(...r.hits);
+      y += op.h;
+    } else if (it.t === 'cols') {
+      const n = it.cols.length, g = it.gap ?? 16, cw = (w - g * (n - 1)) / n; let my = y;
+      it.cols.forEach((col, ci) => { const r = lay(col, x + ci * (cw + g), y, cw, ctx); ops.push(...r.ops); hits.push(...r.hits); my = Math.max(my, r.y); });
+      y = my;
+    } else if (it.t === 'num') {
+      const d = it.d || 32;
+      ops.push({ k: 'num', x, y, w: d, h: d, s: String(it.n), c: it.color || C.gold });
+      const r = lay(it.items, x + d + 14, y + 2, w - d - 14, ctx);
+      ops.push(...r.ops); hits.push(...r.hits);
+      y = Math.max(y + d, r.y);
+    } else if (it.t === 'bullets') {
+      ctx.font = F(it.size, it.weight || 500); const lh = it.size * 1.5;
+      for (const b of it.list) {
+        ops.push({ k: 'dot', x: x + 5, y: y + lh / 2, c: it.dot || C.gold });
+        for (const l of wrap(ctx, b, w - 22)) { ops.push({ k: 't', s: l, x: x + 22, y: y + lh / 2, f: ctx.font, c: it.color || C.txt, a: 'left' }); y += lh; }
+        y += 4;
+      }
+    }
+    if (it.action && it.t !== 'pill') hits.push({ x, y: y0, w, h: y - y0, action: it.action });
+    y += it.mb || 0;
+  }
+  return { ops, hits, y };
+}
+
+function paint(ctx, ops, dy = 0, top = -1e9, bot = 1e9, hov = null) {
+  ctx.textBaseline = 'middle';
+  for (const o of ops) {
+    const y = o.y + dy, h = o.h || 40;
+    if (y + h < top - 60 || y - 60 > bot) continue;
+    switch (o.k) {
+      case 't':
+        ctx.font = o.f; setLS(ctx, o.ls); ctx.fillStyle = o.c; ctx.textAlign = o.a;
+        if (o.sh) { ctx.shadowColor = 'rgba(2,6,16,0.95)'; ctx.shadowBlur = 8; }
+        ctx.fillText(o.s, o.x, y);
+        ctx.shadowBlur = 0; setLS(ctx, 0); break;
+      case 'pill':
+        ctx.fillStyle = alpha(o.c, o.fill ?? 0.15); rr(ctx, o.x, y, o.w, o.h, o.h / 2); ctx.fill();
+        ctx.strokeStyle = alpha(o.c, 0.5); ctx.lineWidth = 1; ctx.stroke();
+        if (o.dot) { ctx.fillStyle = o.c; ctx.beginPath(); ctx.arc(o.x + 15, y + o.h / 2, 4, 0, 7); ctx.fill(); }
+        ctx.font = o.f; ctx.fillStyle = o.fill > 0.5 ? '#08101e' : o.c; ctx.textAlign = 'left';
+        ctx.fillText(o.s, o.x + (o.dot ? 27 : 12), y + o.h / 2 + 0.5); break;
+      case 'r': ctx.fillStyle = o.c; ctx.fillRect(o.x, y, o.w, o.h); break;
+      case 'box': {
+        const on = o.act && hov && o.act === hov;
+        ctx.fillStyle = on ? 'rgba(34,58,98,0.85)' : o.bg; rr(ctx, o.x + 0.5, y + 0.5, o.w - 1, o.h - 1, o.r); ctx.fill();
+        ctx.strokeStyle = on ? alpha(C.gold, 0.8) : o.b; ctx.lineWidth = on ? 1.5 : 1; ctx.stroke();
+        if (o.accent) { ctx.save(); rr(ctx, o.x + 0.5, y + 0.5, o.w - 1, o.h - 1, o.r); ctx.clip(); ctx.fillStyle = o.accent; ctx.fillRect(o.x, y, 4, o.h); ctx.restore(); }
+        break;
+      }
+      case 'num':
+        ctx.fillStyle = alpha(o.c, 0.14); ctx.beginPath(); ctx.arc(o.x + o.w / 2, y + o.w / 2, o.w / 2, 0, 7); ctx.fill();
+        ctx.strokeStyle = alpha(o.c, 0.7); ctx.lineWidth = 1.5; ctx.stroke();
+        ctx.font = F(o.w * 0.45, 800); ctx.fillStyle = o.c; ctx.textAlign = 'center'; ctx.fillText(o.s, o.x + o.w / 2, y + o.w / 2 + 1); break;
+      case 'dot': ctx.fillStyle = o.c; ctx.beginPath(); ctx.arc(o.x, y, 3.5, 0, 7); ctx.fill(); break;
+    }
+  }
+}
+
+/* Belgeyi bir tuvale çizip doku üretir (dünya düzlemleri ve HUD için) */
+function docTex(items, pxW, o = {}) {
+  const pad = o.pad || 0, Sc = o.S || 2;
+  const res = lay(items, pad, pad, pxW - 2 * pad);
+  const Hh = Math.ceil(Math.max(o.minH || 0, res.y + pad));
+  const cv = document.createElement('canvas');
+  cv.width = Math.ceil(pxW * Sc); cv.height = Math.ceil(Hh * Sc);
+  const ctx = cv.getContext('2d');
+  const d = { cv, ctx, W: pxW, H: Hh, Sc, ops: res.ops, hits: res.hits, o, hov: null };
+  d.redraw = (hov = null) => {
+    d.hov = hov; ctx.setTransform(Sc, 0, 0, Sc, 0, 0); ctx.clearRect(0, 0, pxW, Hh);
+    if (o.bg) {
+      ctx.fillStyle = o.bg; rr(ctx, 0.5, 0.5, pxW - 1, Hh - 1, o.r ?? 18); ctx.fill();
+      if (o.border) { ctx.strokeStyle = o.border; ctx.lineWidth = 1.2; ctx.stroke(); }
+      if (o.topLine) { ctx.save(); rr(ctx, 0.5, 0.5, pxW - 1, Hh - 1, o.r ?? 18); ctx.clip(); const g = ctx.createLinearGradient(0, 0, pxW, 0); g.addColorStop(0, alpha(o.topLine, 0)); g.addColorStop(0.5, o.topLine); g.addColorStop(1, alpha(o.topLine, 0)); ctx.fillStyle = g; ctx.fillRect(0, 0, pxW, 2.5); ctx.restore(); }
+    }
+    paint(ctx, d.ops, 0, -1e9, 1e9, hov);
+    if (d.tex) d.tex.needsUpdate = true;
+  };
+  d.redraw();
+  const tex = new THREE.CanvasTexture(cv);
+  tex.colorSpace = THREE.SRGBColorSpace;
+  if (o.hud) { tex.generateMipmaps = false; tex.minFilter = THREE.LinearFilter; }
+  else { tex.anisotropy = MAX_ANISO; }
+  d.tex = tex;
+  return d;
+}
+function docMesh(items, pxW, worldW, o = {}) {
+  const d = docTex(items, pxW, o);
+  const wh = worldW * d.H / d.W;
+  const m = new THREE.Mesh(new THREE.PlaneGeometry(worldW, wh),
+    new THREE.MeshBasicMaterial({ map: d.tex, transparent: true, depthWrite: false, opacity: o.opacity ?? 1, side: o.side || THREE.FrontSide }));
+  m.userData.doc = d; m.userData.ww = worldW; m.userData.wh = wh;
+  return m;
+}
+function docSprite(items, pxW, worldW, o = {}) {
+  const d = docTex(items, pxW, o);
+  const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: d.tex, transparent: true, depthWrite: false, opacity: o.opacity ?? 1 }));
+  s.scale.set(worldW, worldW * d.H / d.W, 1);
+  s.userData.doc = d;
+  return s;
+}
+function disposeObj(o) {
+  o.traverse(c => {
+    if (c.geometry && c.geometry !== UNIT && c.geometry !== SPHERE) c.geometry.dispose();
+    if (c.material) { if (c.material.map) c.material.map.dispose(); c.material.dispose(); }
+  });
+  o.parent && o.parent.remove(o);
+}
+function uvHit(mesh, uv) {
+  const d = mesh.userData.doc; if (!d || !uv) return null;
+  const px = uv.x * d.W, py = (1 - uv.y) * d.H;
+  for (const h of d.hits) if (px >= h.x && px <= h.x + h.w && py >= h.y && py <= h.y + h.h) return h.action;
+  return null;
+}
+
+const UNIT = new THREE.PlaneGeometry(1, 1);
+const SPHERE = new THREE.SphereGeometry(1, 28, 18);
+const glowTex = (() => {
+  const c = document.createElement('canvas'); c.width = c.height = 128; const x = c.getContext('2d');
+  const g = x.createRadialGradient(64, 64, 0, 64, 64, 64);
+  g.addColorStop(0, 'rgba(255,255,255,1)'); g.addColorStop(0.25, 'rgba(255,255,255,0.45)'); g.addColorStop(1, 'rgba(255,255,255,0)');
+  x.fillStyle = g; x.fillRect(0, 0, 128, 128); const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t;
+})();
+const fadeTex = (() => {
+  const c = document.createElement('canvas'); c.width = 128; c.height = 4; const x = c.getContext('2d');
+  const g = x.createLinearGradient(0, 0, 128, 0); g.addColorStop(0, 'rgba(255,255,255,0.9)'); g.addColorStop(1, 'rgba(255,255,255,0)');
+  x.fillStyle = g; x.fillRect(0, 0, 128, 4); return new THREE.CanvasTexture(c);
+})();
+const bright = (hex, k) => new THREE.Color(hex).multiplyScalar(k);
+
+/* ============================================================
+   ANİMASYON (tween)
+   ============================================================ */
+const tweens = [];
+const ease = { io: p => p < 0.5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2, out: p => 1 - Math.pow(1 - p, 3), outBack: p => { const c = 1.6; return 1 + (c + 1) * Math.pow(p - 1, 3) + c * Math.pow(p - 1, 2); } };
+function tween(dur, fn, e = ease.io, done, delay = 0) { const tw = { t: -delay, dur, fn, e, done }; tweens.push(tw); return tw; }
+function runTweens(dt) {
+  for (let i = tweens.length - 1; i >= 0; i--) {
+    const tw = tweens[i]; tw.t += dt; if (tw.t < 0) continue;
+    const p = Math.min(1, tw.t / tw.dur); tw.fn(tw.e(p));
+    if (p >= 1) { tweens.splice(i, 1); tw.done && tw.done(); }
+  }
+}
+const lerp = THREE.MathUtils.lerp, damp = (a, b, k, dt) => lerp(a, b, 1 - Math.exp(-k * dt));
+
+/* ============================================================
+   ARKA PLAN: yıldız alanı, nebula, dönüşüm yolu
+   ============================================================ */
+const SP = 150;                                   // bölümler arası mesafe
+const center = i => new THREE.Vector3(0, 0, -i * SP);
+const NVIEW = 5;
+
+const stars = (() => {
+  const N = MOBILE ? 1800 : 3200, pos = new Float32Array(N * 3), size = new Float32Array(N), ph = new Float32Array(N), col = new Float32Array(N * 3);
+  const pal = [new THREE.Color('#9fb6e0'), new THREE.Color('#F2B544'), new THREE.Color('#3CC8DC'), new THREE.Color('#ffffff')];
+  for (let i = 0; i < N; i++) {
+    pos[i * 3] = (Math.random() - 0.5) * 340; pos[i * 3 + 1] = (Math.random() - 0.5) * 220; pos[i * 3 + 2] = 120 - Math.random() * (NVIEW * SP + 260);
+    size[i] = Math.random() < 0.06 ? 2.6 + Math.random() * 2 : 0.8 + Math.random() * 1.4; ph[i] = Math.random() * 6.28;
+    const c = pal[Math.random() < 0.82 ? 0 : Math.random() < 0.5 ? 1 : Math.random() < 0.5 ? 2 : 3]; col.set([c.r, c.g, c.b], i * 3);
+  }
+  const g = new THREE.BufferGeometry();
+  g.setAttribute('position', new THREE.BufferAttribute(pos, 3)); g.setAttribute('aSize', new THREE.BufferAttribute(size, 1));
+  g.setAttribute('aPhase', new THREE.BufferAttribute(ph, 1)); g.setAttribute('color', new THREE.BufferAttribute(col, 3));
+  const m = new THREE.ShaderMaterial({
+    uniforms: { uTime: { value: 0 }, uPR: { value: DPR } }, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, vertexColors: true,
+    vertexShader: `attribute float aSize; attribute float aPhase; uniform float uTime; uniform float uPR; varying float vA; varying vec3 vC;
+      void main(){ vec4 mv = modelViewMatrix*vec4(position,1.); gl_Position = projectionMatrix*mv; vC = color;
+        vA = (0.55+0.45*sin(uTime*1.3+aPhase)) * smoothstep(420.,40.,-mv.z);
+        gl_PointSize = max(1.0, aSize*uPR*(160./-mv.z)); }`,
+    fragmentShader: `varying float vA; varying vec3 vC; void main(){ float d = length(gl_PointCoord-.5); float a = smoothstep(.5,0.,d)*vA; gl_FragColor = vec4(vC*a*.9, a); }`,
+  });
+  const p = new THREE.Points(g, m); p.frustumCulled = false; scene.add(p); return p;
+})();
+
+for (let i = 0; i < NVIEW; i++) {
+  const cols = ['#1d3c78', '#1f5f8a', '#2b4f9a', '#173a6e', '#1d6a78'];
+  for (let j = 0; j < 3; j++) {
+    const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: glowTex, color: cols[(i + j) % 5], transparent: true, opacity: j === 0 ? 0.12 : 0.05, blending: THREE.AdditiveBlending, depthWrite: false, fog: false }));
+    s.position.copy(center(i)).add(new THREE.Vector3((j - 1) * 40 + (Math.random() - 0.5) * 20, (Math.random() - 0.5) * 30, -70 - j * 15));
+    s.scale.setScalar(j === 0 ? 150 : 90); scene.add(s);
+  }
+}
+
+const journey = (() => {
+  const pts = [new THREE.Vector3(0, -18, 120)];
+  for (let i = 0; i < NVIEW; i++) pts.push(center(i).add(new THREE.Vector3(i % 2 ? 10 : -10, -18, 30)), center(i).add(new THREE.Vector3(i % 2 ? -8 : 8, -17, -40)));
+  pts.push(center(NVIEW - 1).add(new THREE.Vector3(0, -16, -160)));
+  const curve = new THREE.CatmullRomCurve3(pts);
+  const g = new THREE.TubeGeometry(curve, 600, 0.07, 6, false);
+  const m = new THREE.ShaderMaterial({
+    uniforms: { uTime: { value: 0 } }, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
+    vertexShader: `varying vec2 vUv; void main(){ vUv = uv; gl_Position = projectionMatrix*modelViewMatrix*vec4(position,1.); }`,
+    fragmentShader: `varying vec2 vUv; uniform float uTime;
+      void main(){ float f = fract(vUv.x*14. - uTime*0.18); float p = smoothstep(0.0,0.02,f)*smoothstep(0.12,0.02,f);
+        vec3 c = mix(vec3(0.12,0.22,0.42), vec3(1.6,1.05,0.35), p); gl_FragColor = vec4(c, 0.35+p*0.65); }`,
+  });
+  const mesh = new THREE.Mesh(g, m); scene.add(mesh); return mesh;
+})();
+
+/* ============================================================
+   DURUM
+   ============================================================ */
+let current = 0, flying = false, filter = 'all';
+const basePos = camera.position.clone(), baseTarget = new THREE.Vector3(0, 0, 0);
+const par = new THREE.Vector2(), parT = new THREE.Vector2();
+const VIEW_LABELS = ['Genel Bakış', 'Portföy', 'Zaman Çizelgesi', 'Sunum Takvimi', 'Komite Kararları'];
+const VIEW_SHORT = ['Özet', 'Portföy', 'Zaman', 'Takvim', 'Kararlar'];
+const HINTS = [
+  'Kaydırın ya da alttaki menüden bir bölüm seçin',
+  'Ayrıntı için dokunun · Sürükleyerek döndürün',
+  'Ayrıntı için dokunun · Sürükleyerek kaydırın',
+  'Ayrıntı için dokunun · Haftalar arasında kaydırın',
+  'Ayrıntı için dokunun · Kararlar arasında kaydırın',
+];
+const passes = i => filter === 'all' || T[i].g === filter;
+
+function countdown() {
+  const t = new Date(META.komite.iso + 'T00:00:00'), b = new Date(); b.setHours(0, 0, 0, 0);
+  const g = Math.round((t - b) / 864e5); return g > 0 ? g + ' gün sonra' : g === 0 ? 'Bugün' : 'Gerçekleşti';
+}
+
+/* ============================================================
+   BÖLÜM 0 — GENEL BAKIŞ
+   ============================================================ */
+class Arc extends THREE.Curve {
+  constructor(R, a0, len) { super(); this.R = R; this.a0 = a0; this.len = len; }
+  getPoint(t, o = new THREE.Vector3()) { const a = this.a0 - t * this.len; return o.set(Math.cos(a) * this.R, Math.sin(a) * this.R, 0); }
+}
+const V0 = {
+  group: new THREE.Group(), picks: [], first: true,
+  build() {
+    const g = this.group; g.position.copy(center(0)); scene.add(g);
+    this.ring = new THREE.Group(); g.add(this.ring);
+    const R = 7, gap = 0.08; this.R = R;
+    // iz halkası
+    const track = new THREE.Mesh(new THREE.TorusGeometry(R, 0.05, 8, 200), new THREE.MeshBasicMaterial({ color: '#1f355c' }));
+    this.ring.add(track);
+    // dönüşüm yayları
+    this.arcs = []; this.stats = [];
+    let start = Math.PI / 2 + 0.35;
+    for (const k of ORDER) {
+      const len = COUNT[k] / COUNT.all * (Math.PI * 2 - gap * 3), a0 = start - gap / 2;
+      const curve = new Arc(R, a0, len);
+      const geo = new THREE.TubeGeometry(curve, 160, 0.36, 20, false); geo.setDrawRange(0, 0);
+      const m = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ color: bright(ST[k].hex, 1.55) }));
+      const glowGeo = new THREE.TubeGeometry(curve, 160, 1.0, 16, false); glowGeo.setDrawRange(0, 0);
+      const gm = new THREE.Mesh(glowGeo, new THREE.MeshBasicMaterial({ color: ST[k].hex, transparent: true, opacity: 0.09, blending: THREE.AdditiveBlending, depthWrite: false }));
+      this.ring.add(m, gm);
+      this.arcs.push({ geo, glowGeo, total: 160 * 20 * 6, gtotal: 160 * 16 * 6 });
+      // sayı etiketi
+      const am = a0 - len / 2, dir = new THREE.Vector2(Math.cos(am), Math.sin(am));
+      const align = dir.x > 0.35 ? 'left' : dir.x < -0.35 ? 'right' : 'center';
+      const lbl = docMesh([
+        { t: 'text', text: String(COUNT[k]), size: 70, weight: 800, color: ST[k].hex, align, lh: 1.05 },
+        { t: 'text', text: ST[k].label, size: 27, weight: 600, color: C.txt, align, mt: 2 },
+      ], 300, 5.2, { pad: 6 });
+      lbl.material.opacity = 0;
+      const rr_ = R + 2.3, ww = lbl.userData.ww;
+      lbl.position.set(dir.x * rr_ + (align === 'left' ? ww / 2 : align === 'right' ? -ww / 2 : 0), dir.y * rr_ + (Math.abs(dir.y) > 0.8 ? Math.sign(dir.y) * lbl.userData.wh / 2 : 0), 0.2);
+      lbl.userData.action = { type: 'filter', k };
+      this.ring.add(lbl); this.stats.push(lbl); this.picks.push(lbl);
+      start = a0 - len - gap / 2;
+    }
+    // dönen tik halkası
+    const tk = [];
+    for (let i = 0; i < 160; i++) { const a = i / 160 * Math.PI * 2, r1 = R + 1.15, r2 = R + (i % 10 === 0 ? 1.65 : 1.35); tk.push(Math.cos(a) * r1, Math.sin(a) * r1, 0, Math.cos(a) * r2, Math.sin(a) * r2, 0); }
+    const tg = new THREE.BufferGeometry(); tg.setAttribute('position', new THREE.Float32BufferAttribute(tk, 3));
+    this.ticks = new THREE.LineSegments(tg, new THREE.LineBasicMaterial({ color: '#36588f', transparent: true, opacity: 0.6 }));
+    this.ring.add(this.ticks);
+    // yörünge parçacıkları
+    const N = 700, pp = new Float32Array(N * 3);
+    for (let i = 0; i < N; i++) { const a = Math.random() * Math.PI * 2, r = R - 2.4 + Math.random() * 1.2, z = (Math.random() - 0.5) * 1.6; pp.set([Math.cos(a) * r, Math.sin(a) * r, z], i * 3); }
+    const pg = new THREE.BufferGeometry(); pg.setAttribute('position', new THREE.BufferAttribute(pp, 3));
+    this.dust = new THREE.Points(pg, new THREE.PointsMaterial({ color: '#7fa3e0', size: 0.07, transparent: true, opacity: 0.7, depthWrite: false, blending: THREE.AdditiveBlending }));
+    this.ring.add(this.dust);
+    // merkez
+    this.core = docMesh([
+      { t: 'text', text: String(COUNT.all), size: 150, weight: 800, color: '#ffffff', align: 'center', lh: 1.0 },
+      { t: 'text', text: META.toplam, size: 28, weight: 600, color: C.mut, align: 'center', mt: 4, upper: true, ls: 4 },
+    ], 360, 6.2, { pad: 4 });
+    this.core.position.z = 0.3; this.core.material.opacity = 0; this.ring.add(this.core);
+    this.head = docMesh([{ t: 'text', text: META.konularBaslik, size: 34, weight: 700, color: C.txt, align: 'center' }], 900, 15);
+    this.head.position.set(0, R + 4.6, 0); this.head.material.opacity = 0; this.ring.add(this.head);
+  },
+  cardItems(portrait) {
+    const k = META.komite, it = [];
+    if (portrait) {
+      it.push({ t: 'cols', gap: 10, mb: 18, cols: ORDER.map(s => [{ t: 'box', pad: 9, action: { type: 'filter', k: s }, items: [
+        { t: 'text', text: String(COUNT[s]), size: 34, weight: 800, color: ST[s].hex, lh: 1.1 },
+        { t: 'text', text: ST[s].label, size: 12, weight: 600, color: C.txt },
+      ] }]) });
+    }
+    it.push(
+      { t: 'text', text: k.et, size: 14, weight: 700, color: C.gold, upper: true, ls: 2, mb: 10 },
+      { t: 'text', text: k.tarih, size: 52, weight: 800, color: C.txt, lh: 1.08 },
+      { t: 'text', text: k.gun, size: 20, weight: 600, color: C.sub, mb: 18 },
+      { t: 'rule' },
+      { t: 'text', text: k.ad, size: 21, weight: 700, color: C.txt, mt: 18, mb: 6, lh: 1.3 },
+      { t: 'text', text: k.gundem, size: 17, weight: 500, color: C.mut, mb: 18 },
+      { t: 'pill', text: countdown(), color: C.gold, size: 15, dot: true },
+    );
+    return it;
+  },
+  layout() {
+    const portrait = camera.aspect < 0.95;
+    if (portrait !== this.portrait || !this.card) {
+      this.portrait = portrait;
+      if (this.card) { this.picks.splice(this.picks.indexOf(this.card), 1); disposeObj(this.card); }
+      this.card = docMesh(this.cardItems(portrait), portrait ? 380 : 400, portrait ? 17.5 : 11.5, { pad: 28, bg: 'rgba(10,22,44,0.86)', border: 'rgba(242,181,68,0.35)', r: 24, topLine: C.gold });
+      this.card.material.opacity = this.first ? 0 : 1;
+      this.group.add(this.card); this.picks.push(this.card);
+    }
+    this.stats.forEach(s => s.visible = !portrait);
+    if (portrait) {
+      this.ring.position.set(0, 7.5, 0); this.ring.scale.setScalar(0.92);
+      const top = 7.5 + (this.R + 5.4) * 0.92, cardTop = 7.5 - (this.R + 2) * 0.92;
+      this.card.position.set(0, cardTop - this.card.userData.wh / 2, 0);
+      const bottom = cardTop - this.card.userData.wh;
+      return { w: 19.5, h: top - bottom + 1, look: new THREE.Vector3(0, (top + bottom) / 2, 0) };
+    }
+    this.ring.position.set(-7, 0, 0); this.ring.scale.setScalar(1);
+    this.card.position.set(15.2, -0.2, 0);
+    return { w: 46, h: 29, look: new THREE.Vector3(0, 0.3, 0) };
+  },
+  enter() {
+    if (!this.first) return; this.first = false;
+    this.arcs.forEach((a, i) => tween(1.5, p => { a.geo.setDrawRange(0, Math.floor(p * 160) * 20 * 6); a.glowGeo.setDrawRange(0, Math.floor(p * 160) * 16 * 6); }, ease.io, null, 0.5 + i * 0.35));
+    const fade = (o, d) => tween(1.0, p => o.material.opacity = p, ease.out, null, d);
+    fade(this.core, 0.4); fade(this.head, 0.7); this.stats.forEach((s, i) => fade(s, 1.4 + i * 0.3)); fade(this.card, 1.2);
+  },
+  update(dt, t) {
+    this.ticks.rotation.z -= dt * 0.05; this.dust.rotation.z += dt * 0.12;
+    this.ring.rotation.y = damp(this.ring.rotation.y, this.dragY || 0, 4, dt);
+    this.ring.rotation.x = damp(this.ring.rotation.x, Math.sin(t * 0.3) * 0.05, 2, dt);
+    if (!this.dragging) this.dragY = damp(this.dragY || 0, 0, 2, dt);
+    for (const s of this.stats) { const on = s === this.hov; s.scale.setScalar(damp(s.scale.x, on ? 1.08 : 1, 10, dt)); }
+  },
+  drag(dx) { this.dragging = true; this.dragY = THREE.MathUtils.clamp((this.dragY || 0) + dx * 0.004, -0.6, 0.6); },
+  dragEnd() { this.dragging = false; },
+  hover(hit) {
+    this.hov = null; if (!hit) return null;
+    if (hit.object === this.card) { const a = uvHit(this.card, hit.uv); if (this.card.userData.doc.hov !== a) this.card.userData.doc.redraw(a); return a ? { cursor: true } : null; }
+    if (hit.object.userData.action) { this.hov = hit.object; return { cursor: true, tip: { kind: 'text', text: 'Portföyde göster', key: 'f' + hit.object.userData.action.k } }; }
+    return null;
+  },
+  click(hit) {
+    const a = hit.object === this.card ? uvHit(this.card, hit.uv) : hit.object.userData.action;
+    if (a && a.type === 'filter') { setFilter(a.k); goTo(1); }
+  },
+};
+
+/* ============================================================
+   BÖLÜM 1 — PORTFÖY GALAKSİSİ
+   ============================================================ */
+const V1 = {
+  group: new THREE.Group(), picks: [], first: true, hov: -1, sel: -1, rotVel: 0, spin: 1,
+  build() {
+    const g = this.group; g.position.copy(center(1)); scene.add(g);
+    this.root = new THREE.Group(); g.add(this.root);
+    const radii = { tamam: 6, uygulama: 11.5, calisma: 17 }, speeds = { tamam: 0.07, uygulama: -0.045, calisma: 0.028 };
+    this.rings = {};
+    for (const k of ['tamam', 'uygulama', 'calisma']) {
+      const rg = new THREE.Group(); rg.userData.speed = speeds[k]; this.root.add(rg); this.rings[k] = rg;
+      const pts = new THREE.EllipseCurve(0, 0, radii[k], radii[k]).getPoints(256).map(p => new THREE.Vector3(p.x, 0, p.y));
+      const line = new THREE.LineLoop(new THREE.BufferGeometry().setFromPoints(pts), new THREE.LineBasicMaterial({ color: ST[k].hex, transparent: true, opacity: 0.22 }));
+      this.root.add(line);
+      // ince radyal ızgara
+    }
+    const grid = [];
+    for (let i = 0; i < 24; i++) { const a = i / 24 * Math.PI * 2; grid.push(Math.cos(a) * 3, 0, Math.sin(a) * 3, Math.cos(a) * 19.5, 0, Math.sin(a) * 19.5); }
+    const gg = new THREE.BufferGeometry(); gg.setAttribute('position', new THREE.Float32BufferAttribute(grid, 3));
+    this.root.add(new THREE.LineSegments(gg, new THREE.LineBasicMaterial({ color: '#1a2d50', transparent: true, opacity: 0.5 })));
+    // çekirdek
+    this.core = new THREE.Mesh(SPHERE, new THREE.MeshBasicMaterial({ color: bright('#F2B544', 1.25) })); this.core.scale.setScalar(1.1); this.root.add(this.core);
+    const cg = new THREE.Sprite(new THREE.SpriteMaterial({ map: glowTex, color: '#F2B544', transparent: true, opacity: 0.45, blending: THREE.AdditiveBlending, depthWrite: false })); cg.scale.setScalar(8); this.root.add(cg);
+    this.shell = new THREE.Mesh(new THREE.IcosahedronGeometry(2.3, 1), new THREE.MeshBasicMaterial({ color: '#3a62a8', wireframe: true, transparent: true, opacity: 0.45 })); this.root.add(this.shell);
+    this.title = docSprite([
+      { t: 'text', text: META.konular[0], size: 40, weight: 800, color: C.txt, align: 'center', shadow: true },
+      { t: 'text', text: META.konular[1], size: 22, weight: 500, color: C.sub, align: 'center', shadow: true },
+    ], 520, 8.5, { pad: 8 });
+    this.title.center.set(0.5, 0); this.title.position.y = 3.2; this.root.add(this.title);
+    // düğümler
+    this.nodes = [];
+    const byG = { calisma: [], uygulama: [], tamam: [] }; T.forEach((t, i) => byG[t.g].push(i));
+    for (const k in byG) byG[k].forEach((ti, j, list) => {
+      const a = j / list.length * Math.PI * 2 + (k === 'uygulama' ? 0.3 : k === 'tamam' ? 0.9 : 0), r = radii[k];
+      const node = new THREE.Group(); node.position.set(Math.cos(a) * r, 0, Math.sin(a) * r); this.rings[k].add(node);
+      const kc = (T[ti].kararlar || []).length, rad = 0.36 + 0.06 * kc;
+      const mat = new THREE.MeshBasicMaterial({ color: bright(ST[k].hex, 1.3), transparent: true });
+      const sph = new THREE.Mesh(SPHERE, mat); sph.scale.setScalar(rad); node.add(sph);
+      const halo = new THREE.Sprite(new THREE.SpriteMaterial({ map: glowTex, color: ST[k].hex, transparent: true, opacity: 0.3, blending: THREE.AdditiveBlending, depthWrite: false }));
+      halo.scale.setScalar(rad * 6); node.add(halo);
+      const label = docSprite([{ t: 'text', text: T[ti].ad, size: 30, weight: 600, color: C.txt, align: 'center', lh: 1.2, maxLines: 3, shadow: true }], 330, 3.9, { pad: 6 });
+      label.center.set(0.5, 0); label.position.y = rad + 0.35; node.add(label);
+      sph.userData.ti = ti; label.userData.ti = ti; halo.userData.ti = ti;
+      this.picks.push(sph, label);
+      this.nodes[ti] = { node, sph, halo, label, rad, k, s: 0, lo: k === 'calisma' ? 0.62 : 0.85, a: 1 };
+    });
+    // ortak karar bağlantıları
+    const pairs = new Map();
+    for (const no in topicsByDec) { const l = topicsByDec[no]; for (let a = 0; a < l.length; a++) for (let b = a + 1; b < l.length; b++) { const key = Math.min(l[a], l[b]) + '-' + Math.max(l[a], l[b]); pairs.set(key, (pairs.get(key) || 0) + 1); } }
+    this.pairs = [...pairs.entries()].map(([k, n]) => [...k.split('-').map(Number), n]);
+    this.SEG = 22;
+    const nv = this.pairs.length * this.SEG * 2;
+    const eg = new THREE.BufferGeometry();
+    eg.setAttribute('position', new THREE.BufferAttribute(new Float32Array(nv * 3), 3));
+    eg.setAttribute('color', new THREE.BufferAttribute(new Float32Array(nv * 3), 3));
+    this.edges = new THREE.LineSegments(eg, new THREE.LineBasicMaterial({ vertexColors: true, transparent: true, blending: THREE.AdditiveBlending, depthWrite: false }));
+    this.edges.frustumCulled = false; this.root.add(this.edges);
+    this.tmp = [new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()];
+    this.ec = [new THREE.Color(), new THREE.Color('#1e3b70'), new THREE.Color('#F2B544').multiplyScalar(1.4), new THREE.Color('#0b1426')];
+  },
+  layout() {
+    const portrait = camera.aspect < 0.95;
+    return portrait ? { w: 27, h: 26, elev: 0.95, look: new THREE.Vector3(0, -1, 0) } : { w: 42, h: 31, elev: 0.66, look: new THREE.Vector3(0, -0.5, 0) };
+  },
+  enter() {
+    if (!this.first) return; this.first = false;
+    this.nodes.forEach((n, i) => tween(0.9, p => n.s = p, ease.outBack, null, 0.6 + i * 0.03));
+  },
+  update(dt, t) {
+    const focus = this.hov >= 0 || this.sel >= 0;
+    this.spin = damp(this.spin, focus || reduceMotion ? 0 : 1, 3, dt);
+    for (const k in this.rings) this.rings[k].rotation.y += this.rings[k].userData.speed * dt * this.spin;
+    this.root.rotation.y += this.rotVel; this.rotVel *= Math.pow(0.05, dt);
+    this.shell.rotation.y += dt * 0.2; this.shell.rotation.x += dt * 0.07;
+    this.core.scale.setScalar(1.1 + Math.sin(t * 2) * 0.06);
+    const showLabels = !MOBILE;
+    this.nodes.forEach((n, i) => {
+      const on = i === this.hov || i === this.sel, ok = passes(i);
+      n.a = damp(n.a, ok ? 1 : 0.1, 6, dt);
+      const sc = n.rad * n.s * (on ? 1.55 : 1);
+      n.sph.scale.setScalar(damp(n.sph.scale.x, sc, 10, dt));
+      n.sph.material.opacity = n.a; n.halo.material.opacity = 0.3 * n.a * (on ? 2 : 1);
+      n.halo.scale.setScalar(n.sph.scale.x * 4.5);
+      n.label.material.opacity = damp(n.label.material.opacity, (on ? 1 : showLabels ? n.lo : 0) * n.a * n.s, 8, dt);
+      n.label.position.y = n.sph.scale.x + 0.35;
+    });
+    // bağlantılar
+    const pos = this.edges.geometry.attributes.position.array, col = this.edges.geometry.attributes.color.array, SEG = this.SEG;
+    const [p0, p1, c, q] = this.tmp; const focusI = this.sel >= 0 ? this.sel : this.hov;
+    let o = 0;
+    for (const [a, b, n] of this.pairs) {
+      this.nodes[a].node.getWorldPosition(p0); this.root.worldToLocal(p0);
+      this.nodes[b].node.getWorldPosition(p1); this.root.worldToLocal(p1);
+      c.addVectors(p0, p1).multiplyScalar(0.5); c.y += 1.5 + p0.distanceTo(p1) * 0.22;
+      const vis = Math.min(this.nodes[a].a, this.nodes[b].a) * Math.min(this.nodes[a].s, this.nodes[b].s);
+      const hl = focusI >= 0 && (a === focusI || b === focusI);
+      const ec = this.ec[0].copy(hl ? this.ec[2] : focusI >= 0 ? this.ec[3] : this.ec[1]).multiplyScalar(vis * (hl ? 1 : 0.6 + 0.2 * n));
+      for (let s = 0; s < SEG; s++) for (let e = 0; e < 2; e++) {
+        const u = (s + e) / SEG, iu = 1 - u;
+        q.set(iu * iu * p0.x + 2 * iu * u * c.x + u * u * p1.x, iu * iu * p0.y + 2 * iu * u * c.y + u * u * p1.y, iu * iu * p0.z + 2 * iu * u * c.z + u * u * p1.z);
+        pos[o] = q.x; pos[o + 1] = q.y; pos[o + 2] = q.z;
+        const fl = hl ? 0.6 + 0.4 * Math.sin(u * 12 - t * 6) : 1;
+        col[o] = ec.r * fl; col[o + 1] = ec.g * fl; col[o + 2] = ec.b * fl; o += 3;
+      }
+    }
+    this.edges.geometry.attributes.position.needsUpdate = true; this.edges.geometry.attributes.color.needsUpdate = true;
+  },
+  drag(dx) { this.rotVel = dx * 0.006; this.root.rotation.y += dx * 0.006; },
+  dragEnd() { },
+  hover(hit) {
+    const ti = hit ? hit.object.userData.ti : undefined;
+    this.hov = ti !== undefined && passes(ti) ? ti : -1;
+    return this.hov >= 0 ? { cursor: true, tip: { kind: 'topic', i: this.hov } } : null;
+  },
+  click(hit) { const ti = hit.object.userData.ti; if (ti !== undefined && passes(ti)) Panel.show('topic', ti); },
+};
+
+/* ============================================================
+   BÖLÜM 2 — ZAMAN ÇİZELGESİ
+   ============================================================ */
+const V2 = {
+  group: new THREE.Group(), picks: [], hov: -1, sel: -1, pan: 0, panT: 0,
+  build() {
+    const g = this.group; g.position.copy(center(2)); scene.add(g);
+    this.inner = new THREE.Group(); g.add(this.inner);
+    const MW = 2.9, RH = 1.0, N = T.length, MONTHS = 21, LC = 16.5;
+    this.MW = MW; this.BW = MONTHS * MW; this.LC = LC;
+    const totalW = LC + this.BW, x0 = -totalW / 2 + LC; this.x0 = x0;
+    const xOf = m => x0 + m * MW;
+    const top = (N - 1) * RH / 2; this.top = top;
+    // ızgara
+    const gl = [], yl = [];
+    for (let m = 0; m <= MONTHS; m++) { const x = xOf(m); ((m === 0 || m === 9) ? yl : gl).push(x, top + 1.4, -0.3, x, -top - 1.2, -0.3); }
+    const mk = (arr, c, op) => { const gg = new THREE.BufferGeometry(); gg.setAttribute('position', new THREE.Float32BufferAttribute(arr, 3)); return new THREE.LineSegments(gg, new THREE.LineBasicMaterial({ color: c, transparent: true, opacity: op })); };
+    this.inner.add(mk(gl, '#1c3156', 0.7), mk(yl, '#3a5d96', 0.9));
+    // satır şeritleri
+    for (let r = 0; r < N; r += 2) {
+      const band = new THREE.Mesh(UNIT, new THREE.MeshBasicMaterial({ color: '#0d1a33', transparent: true, opacity: 0.55, depthWrite: false }));
+      band.scale.set(totalW + 1, RH, 1); band.position.set(-0.5, top - r * RH, -0.4); this.inner.add(band);
+    }
+    // ay etiketleri
+    for (let m = 0; m < MONTHS; m++) {
+      const am = (m + 3) % 12, yr = 2026 + Math.floor((m + 3) / 12);
+      const l = docMesh([{ t: 'text', text: AY_AD[am], size: 30, weight: 600, color: C.sub, align: 'center' },
+        ...(am === 0 || m === 0 ? [{ t: 'text', text: String(yr), size: 24, weight: 800, color: C.gold, align: 'center' }] : [])], 120, MW * 0.9);
+      l.position.set(xOf(m + 0.5), -top - 1.6 - l.userData.wh / 2 + 0.3, 0); this.inner.add(l);
+    }
+    // bugün çizgisi
+    const xs = xOf(SNAP);
+    const now = new THREE.Mesh(UNIT, new THREE.MeshBasicMaterial({ color: bright(C.gold, 1.6) })); now.scale.set(0.07, (top + 1.6) * 2, 1); now.position.set(xs, 0.1, 0.05); this.inner.add(now);
+    const nl = docMesh([{ t: 'pill', text: META.guncelleme, color: C.gold, size: 24, fill: 0.95, align: 'center' }], 230, 6.4);
+    nl.position.set(xs, top + 2.3, 0.1); this.inner.add(nl);
+    // başlık + lejant
+    const head = docMesh([
+      { t: 'cols', gap: 24, cols: [
+        [{ t: 'text', text: VIEW_LABELS[2], size: 44, weight: 800, color: C.txt }],
+        [{ t: 'text', text: '◆  Komiteye giriş', size: 24, weight: 600, color: C.sub, align: 'right', mt: 10 }, { t: 'text', text: '◇  Hedef tarih', size: 24, weight: 600, color: C.sub, align: 'right' }],
+      ] },
+    ], 1200, totalW * 0.62);
+    head.position.set(-totalW / 2 + head.userData.ww / 2, top + 3.6 + head.userData.wh / 2, 0); this.inner.add(head);
+    // satırlar
+    const order = T.map((t, i) => i).sort((a, b) => mo(T[a].giris) - mo(T[b].giris) || ORDER.indexOf(T[a].g) - ORDER.indexOf(T[b].g));
+    this.rows = [];
+    const barGeo = new THREE.BoxGeometry(1, 0.34, 0.34), dia = new THREE.OctahedronGeometry(0.24, 0), ring = new THREE.TorusGeometry(0.24, 0.07, 6, 16);
+    order.forEach((ti, r) => {
+      const t = T[ti], y = top - r * RH, s = mo(t.giris), e0 = mo(t.hedef), open = e0 == null, e = open ? SNAP : e0;
+      const L = Math.max(0.2, (e - s) * MW);
+      const col = new THREE.Color(ST[t.g].hex);
+      const mat = new THREE.MeshBasicMaterial({ color: col.clone().multiplyScalar(1.15), transparent: true });
+      const bar = new THREE.Mesh(barGeo, mat); bar.position.set(xOf(s), y, 0); bar.scale.set(0.001, 1, 1); bar.userData.ti = ti; this.inner.add(bar);
+      const d0 = new THREE.Mesh(dia, new THREE.MeshBasicMaterial({ color: '#dfe7f5', transparent: true })); d0.position.set(xOf(s), y, 0.25); this.inner.add(d0);
+      let d1 = null, tail = null;
+      if (!open) { d1 = new THREE.Mesh(ring, new THREE.MeshBasicMaterial({ color: bright(ST[t.g].hex, 1.8), transparent: true })); d1.position.set(xOf(e), y, 0.25); this.inner.add(d1); }
+      else { tail = new THREE.Mesh(UNIT, new THREE.MeshBasicMaterial({ map: fadeTex, color: col, transparent: true, depthWrite: false })); tail.scale.set(1.3 * MW, 0.34, 1); tail.position.set(xOf(e) + 0.65 * MW, y, 0); this.inner.add(tail); }
+      const label = docMesh([{ t: 'text', text: t.ad, size: 27, weight: 500, color: C.sub, align: 'right', nowrap: true, lh: 1.25 }], 680, LC - 0.8);
+      label.position.set(x0 - 0.6 - label.userData.ww / 2, y, 0); label.userData.ti = ti; this.inner.add(label);
+      this.picks.push(bar, label);
+      this.rows.push({ ti, bar, d0, d1, tail, label, L, xs: xOf(s), mat, base: col.clone().multiplyScalar(1.15), hi: col.clone().multiplyScalar(2.2), a: 1 });
+    });
+    this.totalW = totalW; this.H = N * RH + 9;
+    this.inner.rotation.set(-0.06, -0.1, 0);
+  },
+  layout() {
+    const portrait = camera.aspect < 1.2;
+    const visW = this.totalW + 4;
+    this.panMax = portrait ? Math.max(0, (visW - this.H * camera.aspect * 0.95) / 2) : 0;
+    if (portrait && this.panT === 0) this.panT = this.panMax; // önce etiketler görünsün
+    this.panT = THREE.MathUtils.clamp(this.panT, -this.panMax, this.panMax);
+    return { w: portrait ? 1 : visW, h: portrait ? this.H + 6 : this.H, look: new THREE.Vector3(0, portrait ? 2.5 : 0.5, 0), fitH: portrait };
+  },
+  enter() {
+    this.rows.forEach((r, i) => { r.bar.scale.x = 0.001; tween(0.9, p => { r.bar.scale.x = Math.max(0.001, r.L * p); r.bar.position.x = r.xs + r.L * p / 2; }, ease.out, null, 0.9 + i * 0.025); });
+  },
+  update(dt) {
+    this.pan = damp(this.pan, this.panT, 6, dt);
+    this.inner.position.x = this.pan;
+    const focusI = this.sel >= 0 ? this.sel : this.hov;
+    for (const r of this.rows) {
+      const ok = passes(r.ti), on = r.ti === focusI;
+      r.a = damp(r.a, ok ? 1 : 0.12, 6, dt);
+      r.mat.color.copy(on ? r.hi : r.base); r.mat.opacity = r.a;
+      r.d0.material.opacity = r.a; if (r.d1) r.d1.material.opacity = r.a; if (r.tail) r.tail.material.opacity = r.a * 0.55;
+      r.label.material.opacity = r.a * (on ? 1 : 0.8);
+      r.bar.scale.y = r.bar.scale.z = damp(r.bar.scale.y, on ? 1.5 : 1, 10, dt);
+      if (r.d1) r.d1.rotation.y += dt * 1.5;
+    }
+  },
+  drag(dx) { this.panT = THREE.MathUtils.clamp(this.panT + dx * this.H / H * 1.1, -this.panMax, this.panMax); },
+  dragEnd() { },
+  hover(hit) {
+    const ti = hit ? hit.object.userData.ti : undefined;
+    this.hov = ti !== undefined && passes(ti) ? ti : -1;
+    return this.hov >= 0 ? { cursor: true, tip: { kind: 'topic', i: this.hov } } : null;
+  },
+  click(hit) { const ti = hit.object.userData.ti; if (ti !== undefined && passes(ti)) Panel.show('topic', ti); },
+};
+
+/* ============================================================
+   KARUSEL yardımcısı (Takvim ve Kararlar)
+   ============================================================ */
+function carousel(items, { R, step, concave, wrapAround }) {
+  return {
+    items, R, step, concave, wrapAround, focus: 0, target: 0, dragging: false,
+    place(dt) {
+      if (!this.dragging) this.focus = damp(this.focus, this.target, 5, dt);
+      const n = this.items.length;
+      this.items.forEach((m, i) => {
+        let d = i - this.focus;
+        if (this.wrapAround) { d = ((d % n) + n * 1.5) % n - n / 2; }
+        const th = d * this.step;
+        if (this.concave) { m.position.set(Math.sin(th) * this.R, m.userData.y0 || 0, this.R - Math.cos(th) * this.R); m.rotation.y = -th; }
+        else { m.position.set(Math.sin(th) * this.R, m.userData.y0 || 0, Math.cos(th) * this.R - this.R); m.rotation.y = th; }
+        const f = this.wrapAround ? Math.max(0, Math.cos(th)) : 1 - Math.min(0.55, Math.abs(d) * 0.3);
+        m.material.opacity = this.wrapAround ? Math.pow(f, 1.6) : f;
+        m.visible = m.material.opacity > 0.02;
+      });
+    },
+    nearest() { const n = this.items.length; return this.wrapAround ? ((Math.round(this.focus) % n) + n) % n : THREE.MathUtils.clamp(Math.round(this.focus), 0, n - 1); },
+    goto(i) {
+      const n = this.items.length;
+      if (this.wrapAround) { let d = i - this.focus; d = ((d % n) + n * 1.5) % n - n / 2; this.target = Math.round(this.focus + d); }
+      else this.target = THREE.MathUtils.clamp(i, 0, n - 1);
+    },
+    drag(dx, scale) { this.dragging = true; this.focus -= dx * scale; if (!this.wrapAround) this.focus = THREE.MathUtils.clamp(this.focus, -0.4, this.items.length - 0.6); },
+    release(v) { this.dragging = false; let t = Math.round(this.focus - v * 4); if (!this.wrapAround) t = THREE.MathUtils.clamp(t, 0, this.items.length - 1); this.target = t; },
+  };
+}
+function idxOf(car, mesh) { return car.items.indexOf(mesh); }
+function headDoc(a, b, w) {
+  return docMesh([
+    { t: 'text', text: a, size: 52, weight: 800, color: C.txt, align: 'center' },
+    { t: 'pill', text: b, color: C.gold, size: 22, align: 'center', mt: 10 },
+  ], 700, w);
+}
+
+/* ============================================================
+   BÖLÜM 3 — SUNUM TAKVİMİ
+   ============================================================ */
+const V3 = {
+  group: new THREE.Group(), picks: [],
+  build() {
+    const g = this.group; g.position.copy(center(3)); scene.add(g);
+    this.inner = new THREE.Group(); g.add(this.inner);
+    const PW = 540, WW = 12.5;
+    const itemsOf = w => [
+      { t: 'text', text: w.hafta, size: 34, weight: 800, color: C.txt },
+      { t: 'pill', text: `${w.konular.length} konu`, color: C.gold, size: 15, mt: 10, mb: 22 },
+      ...w.konular.map((k, ki) => {
+        const ti = topicByName[k.ad];
+        return { t: 'box', mt: ki ? 12 : 0, pad: 16, action: ti != null ? { type: 'topic', i: ti } : null, accent: ti != null ? alpha(ST[T[ti].g].hex, 0.9) : alpha(C.mut, 0.6), items: [
+          { t: 'num', n: ki + 1, d: 34, items: [
+            { t: 'text', text: k.ad, size: 21, weight: 700, color: C.txt, lh: 1.3 },
+            { t: 'text', text: k.birim, size: 16, weight: 500, color: C.sub, mt: 5, lh: 1.42 },
+            ...k.yonetici.flatMap(([u, n], j) => [
+              { t: 'text', text: u, size: 12.5, weight: 700, color: C.gold, upper: true, ls: 1, mt: j ? 6 : 10 },
+              { t: 'text', text: n, size: 17, weight: 600, color: C.txt, mt: 1 },
+            ]),
+          ] },
+        ] };
+      }),
+    ];
+    const minH = Math.max(...S.map(w => lay(itemsOf(w), 30, 30, PW - 60).y + 30));
+    this.panels = S.map((w, i) => {
+      const m = docMesh(itemsOf(w), PW, WW, { pad: 30, bg: 'rgba(10,22,44,0.88)', border: 'rgba(120,160,220,0.28)', r: 26, minH, topLine: C.gold, side: THREE.DoubleSide });
+      m.userData.y0 = 0; this.inner.add(m); this.picks.push(m); return m;
+    });
+    this.ph = this.panels[0].userData.wh;
+    this.car = carousel(this.panels, { R: 30, step: 0.47, concave: true });
+    this.head = headDoc(META.takvim[0], META.takvim[1], 11); this.inner.add(this.head);
+    this.head.position.set(0, this.ph / 2 + 2.6, -1);
+  },
+  layout() {
+    const portrait = camera.aspect < 1.25;
+    return portrait ? { w: 14.2, h: this.ph + 7, look: new THREE.Vector3(0, 1.3, 0) } : { w: 42, h: this.ph + 7, look: new THREE.Vector3(0, 1.3, 0) };
+  },
+  enter() { if (!this.seen) { this.seen = true; this.car.target = camera.aspect >= 1.25 ? 1 : 0; } this.car.focus = this.car.target - 1.4; },
+  update(dt) { this.car.place(dt); },
+  drag(dx) { this.car.drag(dx, 2.2 / W); },
+  dragEnd(v) { this.car.release(v * 2.2 / W * 16); },
+  hover(hit) {
+    let a = null;
+    for (const p of this.panels) {
+      const want = hit && hit.object === p && idxOf(this.car, p) === this.car.nearest() ? uvHit(p, hit.uv) : null;
+      if (p.userData.doc.hov !== want) p.userData.doc.redraw(want);
+      if (want) a = want;
+    }
+    if (hit && !a && idxOf(this.car, hit.object) !== this.car.nearest()) return { cursor: true };
+    return a ? { cursor: true, tip: { kind: 'topic', i: a.i } } : null;
+  },
+  click(hit) {
+    const i = idxOf(this.car, hit.object);
+    if (i !== this.car.nearest()) { this.car.goto(i); return; }
+    const a = uvHit(hit.object, hit.uv); if (a && a.type === 'topic') Panel.show('topic', a.i);
+  },
+  key(dir) { this.car.goto(this.car.nearest() + dir); },
+};
+
+/* ============================================================
+   BÖLÜM 4 — KOMİTE KARARLARI
+   ============================================================ */
+const V4 = {
+  group: new THREE.Group(), picks: [], idle: 0,
+  build() {
+    const g = this.group; g.position.copy(center(4)); scene.add(g);
+    const PW = 500, WW = 9.4;
+    const itemsOf = d => [
+      { t: 'cols', gap: 12, cols: [
+        [{ t: 'text', text: d.tarih, size: 17, weight: 800, color: C.gold, upper: true, ls: 1.5 }],
+        [{ t: 'pill', text: d.durum, color: '#3CC8DC', size: 14, align: 'right', dot: true }],
+      ] },
+      { t: 'text', text: d.no, size: 38, weight: 800, color: C.txt, mt: 10, lh: 1.15 },
+      { t: 'text', text: d.toplanti, size: 16, weight: 500, color: C.mut, mt: 2, mb: 16 },
+      { t: 'rule' },
+      { t: 'text', text: d.metin, size: 19, weight: 500, color: C.txt, lh: 1.55, mt: 16, maxLines: 10 },
+      { t: 'text', text: 'Sorumlu: ' + d.sorumlu, size: 14.5, weight: 500, color: C.sub, lh: 1.45, mt: 16, maxLines: 4 },
+    ];
+    const minH = Math.max(...D.map(d => lay(itemsOf(d), 28, 28, PW - 56).y + 28));
+    this.cards = D.map(d => { const m = docMesh(itemsOf(d), PW, WW, { pad: 28, bg: 'rgba(10,22,44,0.9)', border: 'rgba(120,160,220,0.28)', r: 24, minH, topLine: '#3CC8DC' }); g.add(m); this.picks.push(m); return m; });
+    this.ch = this.cards[0].userData.wh;
+    this.car = carousel(this.cards, { R: 19.5, step: Math.PI * 2 / D.length, concave: false, wrapAround: true });
+    this.head = headDoc(META.kararlar[0], META.kararlar[1], 11); g.add(this.head);
+    this.head.position.set(0, this.ch / 2 + 2.7, 0.5);
+    this.foot = docMesh([
+      { t: 'text', text: META.footer[0], size: 22, weight: 600, color: C.sub, align: 'center' },
+      { t: 'text', text: META.footer[1], size: 19, weight: 500, color: C.mut, align: 'center', mt: 4 },
+    ], 640, 11);
+    this.foot.position.set(0, -this.ch / 2 - 1.4 - this.foot.userData.wh / 2, 0.5); g.add(this.foot);
+    // zemin halkası
+    const rg = new THREE.Mesh(new THREE.TorusGeometry(19.5, 0.04, 6, 200), new THREE.MeshBasicMaterial({ color: '#3CC8DC', transparent: true, opacity: 0.35 }));
+    rg.rotation.x = Math.PI / 2; rg.position.set(0, -this.ch / 2 - 0.6, -19.5); g.add(rg);
+  },
+  layout() {
+    const portrait = camera.aspect < 1.25;
+    return portrait ? { w: 11.2, h: this.ch + 9.5, look: new THREE.Vector3(0, 0.3, 0) } : { w: 36, h: this.ch + 9.5, look: new THREE.Vector3(0, 0.3, 0) };
+  },
+  enter() { this.car.focus = this.car.target - 2.5; this.idle = 0; },
+  update(dt) {
+    this.idle += dt;
+    if (this.idle > 6 && !Panel.open && !reduceMotion && current === 4) { this.idle = 0; this.car.target += 1; }
+    this.car.place(dt);
+  },
+  drag(dx) { this.idle = 0; this.car.drag(dx, 1.6 / W); },
+  dragEnd(v) { this.car.release(v * 1.6 / W * 16); },
+  hover(hit) { this.idle = Math.min(this.idle, 2); return hit ? { cursor: true } : null; },
+  click(hit) {
+    this.idle = 0;
+    const i = idxOf(this.car, hit.object); if (i < 0) return;
+    if (i !== this.car.nearest()) { this.car.goto(i); return; }
+    Panel.show('decision', i);
+  },
+  key(dir) { this.idle = 0; this.car.target += dir; },
+};
+
+const VIEWS = [V0, V1, V2, V3, V4];
+
+/* ============================================================
+   KAMERA
+   ============================================================ */
+function anchor(i) {
+  const L = VIEWS[i].layout();
+  const vf = THREE.MathUtils.degToRad(camera.fov) / 2, tv = Math.tan(vf);
+  const usable = (H - (MOBILE ? 150 : 150)) / H;             // HUD için pay
+  const dh = (L.h / 2) / tv / usable, dw = L.fitH ? 0 : (L.w / 2) / (tv * camera.aspect);
+  const dist = Math.max(dh, dw) * 1.06;
+  const tgt = center(i).add(L.look || new THREE.Vector3());
+  const dir = new THREE.Vector3(0, L.elev || 0, 1).normalize();
+  // HUD üst/alt dengesizliğini telafi et (alt menü daha yüksek)
+  const shift = (MOBILE ? 20 : 18) / H * 2 * tv * dist;
+  tgt.y -= shift * (L.elev ? 0.4 : 1);
+  return { pos: tgt.clone().addScaledVector(dir, dist), tgt };
+}
+function goTo(i, instant) {
+  i = THREE.MathUtils.clamp(i, 0, VIEWS.length - 1);
+  if (Panel.open) Panel.close();
+  const changed = i !== current; current = i;
+  const a = anchor(i);
+  if (instant) { basePos.copy(a.pos); baseTarget.copy(a.tgt); }
+  else {
+    const p0 = basePos.clone(), t0 = baseTarget.clone(), far = p0.distanceTo(a.pos) > 20;
+    flying = true;
+    tween(far ? 1.9 : 0.8, e => {
+      basePos.lerpVectors(p0, a.pos, e); baseTarget.lerpVectors(t0, a.tgt, e);
+      if (far) { basePos.y += Math.sin(e * Math.PI) * 7; basePos.x += Math.sin(e * Math.PI) * (i % 2 ? -6 : 6); }
+    }, ease.io, () => flying = false);
+  }
+  VIEWS[i].enter && VIEWS[i].enter(changed);
+  buildHUD();
+  Tip.hide();
+}
+function updateCamera(dt) {
+  par.x = damp(par.x, parT.x, 2.5, dt); par.y = damp(par.y, parT.y, 2.5, dt);
+  camera.position.copy(basePos);
+  const right = new THREE.Vector3().subVectors(baseTarget, basePos).cross(camera.up).normalize();
+  camera.position.addScaledVector(right, par.x * 1.4).addScaledVector(camera.up, par.y * 0.9);
+  camera.lookAt(baseTarget);
+}
+
+/* ============================================================
+   HUD (ortografik katman — tamamı WebGL)
+   ============================================================ */
+const hudBase = new THREE.Group(); hud.add(hudBase);
+let hudHits = [];
+function hudPlace(m, d, x, y, z = 0) { m.scale.set(d.W, d.H, 1); m.position.set(Math.round(x) + d.W / 2, H - (Math.round(y) + d.H / 2), z); m.renderOrder = z; }
+function hudMesh(d, x, y, z = 0, parent = hudBase) {
+  const m = new THREE.Mesh(UNIT, new THREE.MeshBasicMaterial({ map: d.tex, transparent: true, depthTest: false, depthWrite: false }));
+  hudPlace(m, d, x, y, z); parent.add(m); return m;
+}
+function canvasTex(w, h, draw) {
+  const d = { W: w, H: h, cv: document.createElement('canvas') };
+  d.cv.width = Math.ceil(w * DPR); d.cv.height = Math.ceil(h * DPR);
+  const ctx = d.cv.getContext('2d'); ctx.scale(DPR, DPR); ctx.textBaseline = 'middle'; draw(ctx);
+  d.tex = new THREE.CanvasTexture(d.cv); d.tex.colorSpace = THREE.SRGBColorSpace; d.tex.generateMipmaps = false; d.tex.minFilter = THREE.LinearFilter;
+  return d;
+}
+
+function buildHUD() {
+  while (hudBase.children.length) disposeObj(hudBase.children[0]);
+  hudHits = [];
+  const M = MOBILE, m = M ? 14 : 22;
+  // marka
+  const brand = docTex([
+    { t: 'text', text: META.baslik, size: M ? 15 : 18, weight: 800, color: C.txt, lh: 1.2 },
+    { t: 'text', text: META.alt, size: M ? 11 : 12.5, weight: 500, color: C.mut, mt: 2 },
+  ], M ? 210 : 320, { hud: true, S: DPR });
+  hudMesh(brand, m, M ? 12 : 18);
+  const accent = canvasTex(4, brand.H - 6, c => { c.fillStyle = C.gold; rr(c, 0, 0, 3, brand.H - 6, 2); c.fill(); });
+  hudMesh(accent, m - 10, (M ? 12 : 18) + 3);
+  // güncelleme
+  const upd = docTex([
+    { t: 'text', text: META.guncellemeEt, size: 10.5, weight: 700, color: C.mut, align: 'right', upper: true, ls: 1 },
+    { t: 'text', text: META.guncelleme, size: M ? 12.5 : 14, weight: 700, color: C.txt, align: 'right', mt: 2 },
+  ], 140, { hud: true, S: DPR });
+  hudMesh(upd, W - m - 140, M ? 12 : 18);
+
+  // alt menü
+  const navH = M ? 52 : 46, navY = H - navH - (M ? 12 : 22);
+  const fs = M ? 12 : 13.5;
+  mctx.font = F(fs, 600);
+  let labels = VIEW_LABELS, pad = M ? 10 : 18;
+  let widths = labels.map(l => mctx.measureText(l).width + pad * 2);
+  let total = widths.reduce((a, b) => a + b, 0) + 12;
+  if (total > W - 24) { labels = VIEW_SHORT; widths = labels.map(l => mctx.measureText(l).width + pad * 2); total = widths.reduce((a, b) => a + b, 0) + 12; }
+  if (total > W - 16) { const ww = (W - 16 - 12) / labels.length; widths = labels.map(() => ww); total = W - 16; }
+  const nx = (W - total) / 2;
+  const nav = canvasTex(total, navH, c => {
+    c.fillStyle = 'rgba(8,16,32,0.82)'; rr(c, 0.5, 0.5, total - 1, navH - 1, navH / 2); c.fill();
+    c.strokeStyle = 'rgba(120,160,220,0.25)'; c.lineWidth = 1; c.stroke();
+    let x = 6;
+    labels.forEach((l, i) => {
+      const w = widths[i];
+      if (i === current) { c.fillStyle = C.gold; rr(c, x, 6, w, navH - 12, (navH - 12) / 2); c.fill(); }
+      c.font = F(fs, i === current ? 700 : 600); c.textAlign = 'center'; c.fillStyle = i === current ? '#0a1222' : C.sub;
+      c.fillText(l, x + w / 2, navH / 2 + 0.5);
+      hudHits.push({ x: nx + x, y: navY, w, h: navH, action: { type: 'view', i } });
+      x += w;
+    });
+  });
+  hudMesh(nav, nx, navY, 2);
+  // ilerleme noktaları (masaüstü sağ kenar)
+  if (!M) {
+    const dots = canvasTex(14, VIEWS.length * 22, c => { VIEWS.forEach((_, i) => { c.fillStyle = i === current ? C.gold : 'rgba(150,175,215,0.35)'; c.beginPath(); c.arc(7, 11 + i * 22, i === current ? 4.5 : 3, 0, 7); c.fill(); }); });
+    hudMesh(dots, W - 30, H / 2 - dots.H / 2);
+    VIEWS.forEach((_, i) => hudHits.push({ x: W - 36, y: H / 2 - dots.H / 2 + i * 22, w: 26, h: 22, action: { type: 'view', i } }));
+  }
+  // ipucu
+  const hint = docTex([{ t: 'text', text: HINTS[current], size: M ? 11.5 : 12.5, weight: 500, color: C.mut, align: 'center' }], Math.min(W - 20, 520), { hud: true, S: DPR });
+  hudMesh(hint, (W - hint.W) / 2, navY - hint.H - (M ? 6 : 10));
+  // filtre çipleri
+  if (current === 1 || current === 2) {
+    const list = [['all', 'Tümü', null], ...ORDER.map(k => [k, ST[k].label, ST[k].hex])];
+    const cfs = M ? 11.5 : 13; mctx.font = F(cfs, 600);
+    const cpad = M ? 9 : 14, dotW = 14;
+    let cw = list.map(([k, l]) => mctx.measureText(l + '  ' + COUNT[k]).width + cpad * 2 + (k === 'all' ? 0 : dotW));
+    const gap = 6; let tw = cw.reduce((a, b) => a + b, 0) + gap * (list.length - 1);
+    let fsc = 1; if (tw > W - 16) { fsc = (W - 16 - gap * 3) / (tw - gap * 3); cw = cw.map(x => x * fsc); tw = W - 16; }
+    const chH = M ? 30 : 34, cy = M ? 64 : 22, cx = (W - tw) / 2;
+    if (M || W > 1000) {
+      const chips = canvasTex(tw, chH, c => {
+        let x = 0;
+        list.forEach(([k, l, hex], i) => {
+          const on = filter === k, w = cw[i];
+          c.fillStyle = on ? (hex ? alpha(hex, 0.22) : 'rgba(230,236,245,0.16)') : 'rgba(8,16,32,0.78)';
+          rr(c, x + 0.5, 0.5, w - 1, chH - 1, chH / 2); c.fill();
+          c.strokeStyle = on ? (hex || '#E6ECF5') : 'rgba(120,160,220,0.25)'; c.lineWidth = 1; c.stroke();
+          let tx = x + cpad * fsc; const cf = cfs * fsc;
+          if (hex) { c.fillStyle = hex; c.beginPath(); c.arc(tx + 4, chH / 2, 4, 0, 7); c.fill(); tx += dotW * fsc; }
+          c.font = F(cf, 600); c.textAlign = 'left'; c.fillStyle = on ? '#fff' : C.sub; c.fillText(l, tx, chH / 2 + 0.5);
+          const lw = c.measureText(l + '  ').width; c.font = F(cf, 800); c.fillStyle = hex || C.txt; c.fillText(String(COUNT[k]), tx + lw, chH / 2 + 0.5);
+          hudHits.push({ x: cx + x, y: cy, w, h: chH, action: { type: 'filter', k } });
+          x += w + gap;
+        });
+      });
+      hudMesh(chips, cx, cy, 1);
+    }
+  }
+}
+
+/* İpucu kutusu */
+const Tip = {
+  m: null, key: null, d: null,
+  show(tip, x, y) {
+    if (!tip) return this.hide();
+    const key = tip.kind === 'topic' ? 't' + tip.i : tip.key;
+    if (key !== this.key) {
+      this.hide(); this.key = key;
+      let items;
+      if (tip.kind === 'topic') {
+        const t = T[tip.i];
+        items = [
+          { t: 'pill', text: t.durum, color: ST[t.g].hex, size: 11, dot: true, mb: 8 },
+          { t: 'text', text: t.ad, size: 15, weight: 700, color: C.txt, lh: 1.3 },
+          { t: 'text', text: t.sorumlu, size: 12, weight: 500, color: C.mut, mt: 4, maxLines: 2 },
+          { t: 'text', text: `${t.giris} → ${t.hedef}`, size: 12, weight: 600, color: C.sub, mt: 6 },
+        ];
+      } else items = [{ t: 'text', text: tip.text, size: 13, weight: 600, color: C.txt }];
+      this.d = docTex(items, tip.kind === 'topic' ? 300 : 170, { hud: true, S: DPR, pad: 12, bg: 'rgba(8,16,32,0.95)', border: 'rgba(242,181,68,0.45)', r: 12 });
+      this.m = hudMesh(this.d, 0, 0, 20, hud);
+    }
+    let px = x + 18, py = y + 18;
+    if (px + this.d.W > W - 8) px = x - this.d.W - 14;
+    if (py + this.d.H > H - 8) py = y - this.d.H - 14;
+    hudPlace(this.m, this.d, px, py, 20);
+  },
+  hide() { if (this.m) disposeObj(this.m); this.m = null; this.key = null; },
+};
+
+/* ============================================================
+   AYRINTI PANELİ (HUD içinde, kaydırılabilir WebGL tuvali)
+   ============================================================ */
+const Panel = {
+  open: false, kind: null, idx: 0, scroll: 0, vel: 0, a: 0, hov: null,
+  show(kind, idx) {
+    this.kind = kind; this.idx = idx; this.scroll = 0; this.vel = 0;
+    V1.sel = V2.sel = -1;
+    if (kind === 'topic') { if (current === 1) V1.sel = idx; if (current === 2) V2.sel = idx; }
+    this.build();
+    if (!this.open) { this.open = true; this.a = 0; tween(0.45, p => this.a = p, ease.out); }
+    Tip.hide();
+  },
+  close() {
+    if (!this.open) return; this.open = false; V1.sel = V2.sel = -1;
+    tween(0.3, p => this.a = 1 - p, ease.out, () => { if (!this.open) this.dispose(); });
+  },
+  dispose() { if (this.grp) disposeObj(this.grp); this.grp = null; this.cv = null; },
+  list() { return this.kind === 'topic' ? T : D; },
+  step(d) { const n = this.list().length; this.show(this.kind, (this.idx + d + n) % n); if (this.kind === 'decision' && current === 4) V4.car.goto(this.idx); },
+  items() {
+    const M = MOBILE;
+    const sec = (s, extra) => ({ t: 'text', text: s + (extra ? '   ' + extra : ''), size: 12.5, weight: 800, color: C.gold, upper: true, ls: 1.4, mt: 26, mb: 10 });
+    const body = s => ({ t: 'text', text: s, size: M ? 15 : 16, weight: 400, color: C.sub, lh: 1.62 });
+    if (this.kind === 'topic') {
+      const t = T[this.idx], st = ST[t.g];
+      const it = [
+        { t: 'text', text: t.ad, size: M ? 23 : 30, weight: 800, color: '#fff', lh: 1.2, mt: 6, mb: 18 },
+        { t: 'cols', gap: 12, mb: 14, cols: [
+          [{ t: 'box', pad: 14, items: [{ t: 'text', text: 'Komiteye giriş', size: 11.5, weight: 700, color: C.mut, upper: true, ls: 1, mb: 4 }, { t: 'text', text: t.giris, size: M ? 16 : 18, weight: 700 }] }],
+          [{ t: 'box', pad: 14, items: [{ t: 'text', text: 'Hedef tarih', size: 11.5, weight: 700, color: C.mut, upper: true, ls: 1, mb: 4 }, { t: 'text', text: t.hedef, size: M ? 16 : 18, weight: 700 }] }],
+        ] },
+        { t: 'text', text: t.sorumlu, size: 14, weight: 600, color: C.mut, lh: 1.5 },
+        sec('Amaç'), body(t.amac), sec('Kapsam'), body(t.kapsam), sec('Beklenen kazanım'), body(t.kazanim),
+      ];
+      if (t.alt) it.push(sec('Alt konular'), { t: 'bullets', list: t.alt, size: M ? 15 : 16, weight: 600, color: C.txt, dot: st.hex });
+      if (t.kararlar && t.kararlar.length) {
+        it.push(sec('İlgili komite kararları', String(t.kararlar.length)));
+        t.kararlar.forEach((k, j) => {
+          const di = decIdx[k.no];
+          it.push({ t: 'box', mt: j ? 10 : 0, pad: 16, accent: alpha(st.hex, 0.9), action: di != null ? { type: 'decision', i: di } : null, items: [
+            { t: 'text', text: `${k.no} · ${k.tarih}`, size: 14, weight: 800, color: C.txt, mb: 5 },
+            { t: 'text', text: k.metin, size: M ? 14.5 : 15, weight: 400, color: C.sub, lh: 1.55 },
+          ] });
+        });
+      }
+      it.push({ t: 'space', h: 24 });
+      return it;
+    }
+    const d = D[this.idx], rel = topicsByDec[d.no] || [];
+    const it = [
+      { t: 'text', text: d.no, size: M ? 28 : 36, weight: 800, color: '#fff', mt: 6 },
+      { t: 'text', text: `${d.tarih} · ${d.toplanti}`, size: 14.5, weight: 600, color: C.mut, mt: 4, mb: 18 },
+      { t: 'text', text: d.metin, size: M ? 16.5 : 18, weight: 500, color: C.txt, lh: 1.62 },
+      sec('Sorumlu'), body(d.sorumlu),
+    ];
+    if (rel.length) {
+      it.push(sec('İlgili konular', String(rel.length)));
+      rel.forEach((ti, j) => it.push({ t: 'box', mt: j ? 10 : 0, pad: 14, accent: alpha(ST[T[ti].g].hex, 0.9), action: { type: 'topic', i: ti }, items: [
+        { t: 'pill', text: T[ti].durum, color: ST[T[ti].g].hex, size: 11, dot: true, mb: 8 },
+        { t: 'text', text: T[ti].ad, size: 16, weight: 700, color: C.txt },
+      ] }));
+    }
+    it.push({ t: 'space', h: 24 });
+    return it;
+  },
+  build() {
+    const M = MOBILE;
+    const pw = M ? W - 16 : Math.min(800, W - 80), top = M ? 10 : 78, ph = M ? H - 20 : H - 78 - 30;
+    this.r = { x: Math.round((W - pw) / 2), y: top, w: pw, h: ph };
+    this.headH = 66; this.pad = M ? 18 : 34;
+    const res = lay(this.items(), this.pad, 0, pw - this.pad * 2);
+    this.ops = res.ops; this.hits = res.hits;
+    this.viewH = ph - this.headH; this.maxScroll = Math.max(0, res.y - this.viewH);
+    if (!this.cv || this.cv.width !== Math.ceil(pw * DPR) || this.cv.height !== Math.ceil(ph * DPR)) {
+      this.dispose();
+      this.cv = document.createElement('canvas'); this.cv.width = Math.ceil(pw * DPR); this.cv.height = Math.ceil(ph * DPR);
+      this.ctx = this.cv.getContext('2d');
+      this.tex = new THREE.CanvasTexture(this.cv); this.tex.colorSpace = THREE.SRGBColorSpace; this.tex.generateMipmaps = false; this.tex.minFilter = THREE.LinearFilter;
+      this.grp = new THREE.Group(); hud.add(this.grp);
+      this.back = new THREE.Mesh(UNIT, new THREE.MeshBasicMaterial({ color: '#02060f', transparent: true, opacity: 0, depthTest: false, depthWrite: false }));
+      this.back.renderOrder = 30; this.grp.add(this.back);
+      this.mesh = new THREE.Mesh(UNIT, new THREE.MeshBasicMaterial({ map: this.tex, transparent: true, opacity: 0, depthTest: false, depthWrite: false }));
+      this.mesh.renderOrder = 31; this.grp.add(this.mesh);
+    }
+    this.back.scale.set(W, H, 1); this.back.position.set(W / 2, H / 2, 0);
+    this.mesh.scale.set(pw, ph, 1); this.mesh.position.set(this.r.x + pw / 2, H - (this.r.y + ph / 2), 0);
+    this.btns = [
+      { x: pw - 50, y: 14, w: 38, h: 38, s: '×', action: 'close' },
+      { x: pw - 50 - 46, y: 14, w: 38, h: 38, s: '›', action: 'next' },
+      { x: pw - 50 - 92, y: 14, w: 38, h: 38, s: '‹', action: 'prev' },
+    ];
+    this.draw();
+  },
+  draw() {
+    const c = this.ctx, { w, h } = this.r;
+    c.setTransform(DPR, 0, 0, DPR, 0, 0); c.clearRect(0, 0, w, h);
+    c.fillStyle = C.panel; rr(c, 0.5, 0.5, w - 1, h - 1, 22); c.fill();
+    c.strokeStyle = 'rgba(242,181,68,0.35)'; c.lineWidth = 1.2; c.stroke();
+    c.save(); rr(c, 0.5, 0.5, w - 1, h - 1, 22); c.clip();
+    const glow = c.createRadialGradient(w * 0.15, 0, 0, w * 0.15, 0, w * 0.8); glow.addColorStop(0, 'rgba(242,181,68,0.08)'); glow.addColorStop(1, 'rgba(242,181,68,0)');
+    c.fillStyle = glow; c.fillRect(0, 0, w, h);
+    // içerik
+    c.save(); c.beginPath(); c.rect(0, this.headH, w, this.viewH); c.clip();
+    paint(c, this.ops, this.headH - this.scroll, this.headH, h, this.hov);
+    c.restore();
+    // başlık şeridi
+    const fg = c.createLinearGradient(0, this.headH - 4, 0, this.headH + 18); fg.addColorStop(0, 'rgba(9,18,36,1)'); fg.addColorStop(1, 'rgba(9,18,36,0)');
+    c.fillStyle = 'rgba(9,18,36,1)'; c.fillRect(0, 0, w, this.headH - 4); c.fillStyle = fg; c.fillRect(0, this.headH - 4, w, 22);
+    const g2 = c.createLinearGradient(0, 0, w, 0); g2.addColorStop(0, 'rgba(242,181,68,0)'); g2.addColorStop(0.5, C.gold); g2.addColorStop(1, 'rgba(242,181,68,0)');
+    c.fillStyle = g2; c.fillRect(0, 0, w, 2.5);
+    c.restore();
+    // başlık: durum hapı + sayaç
+    const isT = this.kind === 'topic', it = isT ? T[this.idx] : D[this.idx];
+    const pillR = lay([{ t: 'pill', text: isT ? it.durum : it.durum, color: isT ? ST[it.g].hex : '#3CC8DC', size: 12.5, dot: true }], this.pad, 18, 300);
+    paint(c, pillR.ops);
+    c.font = F(12.5, 600); c.fillStyle = C.mut; c.textAlign = 'left'; c.textBaseline = 'middle';
+    const pw_ = pillR.ops[0].w;
+    const lbl = `${this.idx + 1} / ${this.list().length}` + (MOBILE ? '' : (isT ? ' · ' + VIEW_LABELS[1] : ' · ' + VIEW_LABELS[4]));
+    c.fillText(lbl, this.pad + pw_ + 12, 33);
+    for (const b of this.btns) {
+      const on = this.hov === b.action;
+      c.fillStyle = on ? C.gold : 'rgba(40,64,104,0.55)'; rr(c, b.x, b.y, b.w, b.h, 12); c.fill();
+      c.strokeStyle = 'rgba(150,180,230,0.3)'; c.lineWidth = 1; c.stroke();
+      c.fillStyle = on ? '#0a1222' : C.txt; c.font = F(b.s === '×' ? 24 : 26, 600); c.textAlign = 'center'; c.fillText(b.s, b.x + b.w / 2, b.y + b.h / 2 + 1);
+    }
+    // kaydırma çubuğu
+    if (this.maxScroll > 0) {
+      const th = Math.max(40, this.viewH * this.viewH / (this.viewH + this.maxScroll)), ty = this.headH + (this.viewH - th - 12) * (this.scroll / this.maxScroll) + 6;
+      c.fillStyle = 'rgba(150,180,230,0.12)'; rr(c, w - 7, this.headH + 6, 3, this.viewH - 12, 2); c.fill();
+      c.fillStyle = 'rgba(242,181,68,0.7)'; rr(c, w - 7, ty, 3, th, 2); c.fill();
+    }
+    this.tex.needsUpdate = true;
+  },
+  hit(x, y) { // ekran koordinatı -> eylem
+    const lx = x - this.r.x, ly = y - this.r.y;
+    if (lx < 0 || ly < 0 || lx > this.r.w || ly > this.r.h) return { outside: true };
+    for (const b of this.btns) if (lx >= b.x && lx <= b.x + b.w && ly >= b.y && ly <= b.y + b.h) return { btn: b.action };
+    if (ly > this.headH) { const cy = ly - this.headH + this.scroll; for (const h of this.hits) if (lx >= h.x && lx <= h.x + h.w && cy >= h.y && cy <= h.y + h.h) return { action: h.action }; }
+    return {};
+  },
+  scrollBy(dy) { const s = THREE.MathUtils.clamp(this.scroll + dy, 0, this.maxScroll); if (s !== this.scroll) { this.scroll = s; this.draw(); } },
+  update(dt) {
+    if (!this.grp) return;
+    this.back.material.opacity = 0.62 * this.a; this.mesh.material.opacity = this.a;
+    this.mesh.position.y = H - (this.r.y + this.r.h / 2) - (1 - this.a) * 40;
+    if (Math.abs(this.vel) > 0.3) { this.scrollBy(this.vel * dt * 60); this.vel *= Math.pow(0.02, dt); if (this.scroll <= 0 || this.scroll >= this.maxScroll) this.vel = 0; }
+  },
+};
+
+/* ============================================================
+   ETKİLEŞİM
+   ============================================================ */
+const ray = new THREE.Raycaster(), ndc = new THREE.Vector2();
+const ptr = { x: -1, y: -1, down: false, sx: 0, sy: 0, lx: 0, ly: 0, gest: null, moved: false, type: 'mouse', vx: 0, inPanel: false, dirty: false, t: 0 };
+function setFilter(k) { filter = k; buildHUD(); }
+function act(a) {
+  if (!a) return;
+  if (a.type === 'view') goTo(a.i);
+  else if (a.type === 'filter') setFilter(a.k);
+  else if (a.type === 'topic') Panel.show('topic', a.i);
+  else if (a.type === 'decision') Panel.show('decision', a.i);
+}
+function hudHitAt(x, y) { for (const h of hudHits) if (x >= h.x && x <= h.x + h.w && y >= h.y && y <= h.y + h.h) return h; return null; }
+function worldHit(x, y) {
+  ndc.set(x / W * 2 - 1, -(y / H) * 2 + 1); ray.setFromCamera(ndc, camera);
+  const v = VIEWS[current]; const hits = ray.intersectObjects(v.picks.filter(o => o.visible), false);
+  return hits.find(h => (h.object.material.opacity ?? 1) > 0.15) || null;
+}
+const cv = renderer.domElement;
+cv.addEventListener('pointerdown', e => {
+  cv.focus({ preventScroll: true });
+  Object.assign(ptr, { down: true, sx: e.clientX, sy: e.clientY, lx: e.clientX, ly: e.clientY, gest: null, moved: false, type: e.pointerType, vx: 0, t: performance.now() });
+  ptr.inPanel = Panel.open && !Panel.hit(e.clientX, e.clientY).outside;
+  if (Panel.open) Panel.vel = 0;
+  cv.setPointerCapture(e.pointerId);
+});
+cv.addEventListener('pointermove', e => {
+  ptr.x = e.clientX; ptr.y = e.clientY; ptr.dirty = true;
+  if (e.pointerType === 'mouse') parT.set(e.clientX / W * 2 - 1, -(e.clientY / H * 2 - 1));
+  if (!ptr.down) return;
+  const dx = e.clientX - ptr.lx, dy = e.clientY - ptr.ly; ptr.lx = e.clientX; ptr.ly = e.clientY;
+  const tx = e.clientX - ptr.sx, ty = e.clientY - ptr.sy;
+  if (!ptr.moved && Math.hypot(tx, ty) > 7) { ptr.moved = true; ptr.gest = Math.abs(tx) > Math.abs(ty) ? 'h' : 'v'; }
+  if (!ptr.moved) return;
+  if (Panel.open) { if (ptr.inPanel) { Panel.scrollBy(-dy); Panel.vel = -dy; } return; }
+  if (ptr.gest === 'h' || (ptr.type === 'mouse' && ptr.gest)) { VIEWS[current].drag(ptr.gest === 'h' ? dx : 0); ptr.vx = dx; }
+});
+cv.addEventListener('pointerup', e => {
+  if (!ptr.down) return; ptr.down = false;
+  const x = e.clientX, y = e.clientY;
+  if (!ptr.moved) {
+    if (Panel.open) {
+      const h = Panel.hit(x, y);
+      if (h.outside) Panel.close();
+      else if (h.btn === 'close') Panel.close(); else if (h.btn === 'next') Panel.step(1); else if (h.btn === 'prev') Panel.step(-1);
+      else if (h.action) act(h.action);
+      return;
+    }
+    const hh = hudHitAt(x, y); if (hh) { act(hh.action); return; }
+    const wh = worldHit(x, y); if (wh) VIEWS[current].click(wh);
+    return;
+  }
+  if (Panel.open) return;
+  if (ptr.gest === 'h' || ptr.type === 'mouse') VIEWS[current].dragEnd(ptr.vx);
+  if (ptr.gest === 'v' && ptr.type !== 'mouse') { const ty = y - ptr.sy; if (Math.abs(ty) > 50 && !flying) goTo(current + (ty < 0 ? 1 : -1)); }
+});
+cv.addEventListener('pointercancel', () => { ptr.down = false; VIEWS[current].dragEnd(0); });
+cv.addEventListener('pointerleave', e => { if (e.pointerType === 'mouse') { parT.set(0, 0); Tip.hide(); } });
+let wheelAcc = 0, wheelLock = 0;
+cv.addEventListener('wheel', e => {
+  e.preventDefault();
+  const dy = e.deltaMode === 1 ? e.deltaY * 16 : e.deltaY;
+  if (Panel.open) { Panel.scrollBy(dy); return; }
+  if (current === 2 && Math.abs(e.deltaX) > Math.abs(e.deltaY)) { V2.drag(-e.deltaX); return; }
+  const now = performance.now(); if (now < wheelLock) return;
+  wheelAcc += dy;
+  if (Math.abs(wheelAcc) > 80) { goTo(current + Math.sign(wheelAcc)); wheelAcc = 0; wheelLock = now + 1100; }
+}, { passive: false });
+window.addEventListener('keydown', e => {
+  if (Panel.open) {
+    if (e.key === 'Escape') Panel.close();
+    else if (e.key === 'ArrowRight') Panel.step(1); else if (e.key === 'ArrowLeft') Panel.step(-1);
+    else if (e.key === 'ArrowDown') Panel.scrollBy(60); else if (e.key === 'ArrowUp') Panel.scrollBy(-60);
+    else if (e.key === 'PageDown' || e.key === ' ') Panel.scrollBy(Panel.viewH * 0.85); else if (e.key === 'PageUp') Panel.scrollBy(-Panel.viewH * 0.85);
+    return;
+  }
+  if (e.key === 'ArrowDown' || e.key === 'PageDown') goTo(current + 1);
+  else if (e.key === 'ArrowUp' || e.key === 'PageUp') goTo(current - 1);
+  else if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+    const d = e.key === 'ArrowRight' ? 1 : -1, v = VIEWS[current];
+    if (v.key) v.key(d); else if (current === 1) V1.rotVel = -d * 0.05; else if (current === 2) V2.drag(-d * 120);
+  }
+  else if (/^[1-5]$/.test(e.key)) goTo(+e.key - 1);
+  else if (e.key === 'Home') goTo(0); else if (e.key === 'End') goTo(4);
+});
+
+function doHover() {
+  ptr.dirty = false;
+  if (ptr.type !== 'mouse' || ptr.down) return;
+  let cursor = false;
+  if (Panel.open) {
+    const h = Panel.hit(ptr.x, ptr.y), hv = h.btn || h.action || null;
+    if (hv !== Panel.hov) { Panel.hov = hv; Panel.draw(); }
+    cursor = !!hv || h.outside;
+    Tip.hide();
+  } else if (hudHitAt(ptr.x, ptr.y)) { cursor = true; Tip.hide(); VIEWS[current].hover(null); }
+  else if (!flying) {
+    const r = VIEWS[current].hover(worldHit(ptr.x, ptr.y));
+    cursor = !!(r && r.cursor);
+    if (r && r.tip) Tip.show(r.tip, ptr.x, ptr.y); else Tip.hide();
+  }
+  cv.style.cursor = cursor ? 'pointer' : (ptr.down ? 'grabbing' : 'default');
+}
+
+function onResize() {
+  W = innerWidth; H = innerHeight; MOBILE = W < 760;
+  renderer.setSize(W, H); composer.setSize(W, H); bloom.setSize(W / 2, H / 2);
+  camera.aspect = W / H; camera.updateProjectionMatrix();
+  hudCam.right = W; hudCam.top = H; hudCam.updateProjectionMatrix();
+  const a = anchor(current); if (!flying) { basePos.copy(a.pos); baseTarget.copy(a.tgt); }
+  buildHUD(); Tip.hide();
+  if (Panel.open) { Panel.build(); Panel.scrollBy(0); }
+}
+let rzT; window.addEventListener('resize', () => { clearTimeout(rzT); rzT = setTimeout(onResize, 80); });
+
+/* ============================================================
+   BAŞLAT
+   ============================================================ */
+async function fontsReady() {
+  if (!document.fonts) return;
+  const loads = [400, 500, 600, 700, 800].map(w => document.fonts.load(`${w} 16px Inter`, 'ĞğŞşİıÇçÖöÜü'));
+  await Promise.race([Promise.all(loads), new Promise(r => setTimeout(r, 2500))]).catch(() => {});
+}
+await fontsReady();
+VIEWS.forEach(v => v.build());
+buildHUD();
+{ const a = anchor(0); baseTarget.copy(a.tgt); basePos.copy(a.pos).add(new THREE.Vector3(0, 14, 110)); }
+goTo(0);
+
+const DTMAX = +new URLSearchParams(location.search).get('dtmax') || 0.05;
+let last = performance.now(), time = 0;
+function loop(now) {
+  const dt = Math.min(DTMAX, (now - last) / 1000); last = now; time += dt;
+  runTweens(dt);
+  for (const [i, v] of VIEWS.entries()) { v.group.visible = (i === current || flying) && Math.abs(camera.position.z - v.group.position.z) < 330; if (v.group.visible) v.update(dt, time); }
+  stars.material.uniforms.uTime.value = time; journey.material.uniforms.uTime.value = time;
+  updateCamera(dt);
+  Panel.update(dt);
+  if (ptr.dirty) doHover();
+  composer.render();
+  renderer.autoClear = false; renderer.clearDepth(); renderer.render(hud, hudCam); renderer.autoClear = true;
+  requestAnimationFrame(loop);
+}
+requestAnimationFrame(loop);
+window.__app = { goTo, Panel, VIEWS, setFilter, get current() { return current; } };
+</script>
+</body>
+</html>
